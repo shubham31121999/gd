@@ -106,7 +106,7 @@ const testimonials = [
   {
     name: "Alvito D'Cunha",
     location: "Fort",
-    treatment: "Implants",
+    treatment: "Root Canal",
     content:
       "My first consultation with Opus dental clinic is something that I'll always remember cause I remember being very late but Doctor Burzin Khan was patient and to my surprise it was the first time I saw a dentist wait for his patient. After which came the root canal treatment which was again worked on phenomenally by the team of dentists at Opus.",
     rating: 5,
@@ -114,7 +114,7 @@ const testimonials = [
   {
     name: "Mazdiar",
     location: "Mumbai",
-    treatment: "Root Canal",
+    treatment: "Cosmetic Treatment",
     content:
       "Just 1 day before an important Family function I happened to have an accidental fall due to which I lost 2 teeth of mine and I wanted to go for some temporary treatment so that I could attend the function with confidence and Dr Burzin Khan came to my rescue.",
     rating: 5,
