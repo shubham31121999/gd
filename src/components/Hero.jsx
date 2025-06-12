@@ -3,6 +3,35 @@ import { ShieldCheck, Medal } from "lucide-react"; // Use lucide for icons or sw
 
 
 const Hero = () => {
+   const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      phone: e.target.phone.value,
+    };
+
+    try {
+      const response = await fetch("https://hooks.zapier.com/hooks/catch/22908877/uylql6k/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Form submitted successfully!");
+        e.target.reset();
+      } else {
+        alert("Failed to submit form.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("Something went wrong.");
+    }
+  };
   return (
    <section className="w-full bg-primary text-white" id="hero-form">
   {/* Optional overlay for readability */}
@@ -39,7 +68,7 @@ const Hero = () => {
 
       {/* Right Half - Form */}
       <div className="w-full md:w-1/2">
-        <form className="bg-white p-6 rounded shadow-green w-full">
+        <form  onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-green w-full">
    
 
     <label htmlFor="name" className="block text-gray-700 font-medium mb-1">Name</label>
