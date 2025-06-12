@@ -97,7 +97,7 @@ import "slick-carousel/slick/slick-theme.css";
 const testimonials = [
   {
     name: "Ashoo Samant",
-    location: "Bandra",
+    location: "Mumbai",
     treatment: "Smile Makeover",
     content:
       "Opus Dental specialities has been constant in terms of dental related issues of mine but this time I walked in for a cosmetic transformation. After feeling not so confident about my bad set of teeth I planned to undergo treatment at Opus and it was indeed a quick, planned and painless procedure. Huge shoutout to Dr. Burzin and his team of doctors for the great work they put in.",
@@ -105,7 +105,7 @@ const testimonials = [
   },
   {
     name: "Alvito D'Cunha",
-    location: "Fort",
+    location: "Mumbai",
     treatment: "Root Canal",
     content:
       "My first consultation with Opus dental clinic is something that I'll always remember cause I remember being very late but Doctor Burzin Khan was patient and to my surprise it was the first time I saw a dentist wait for his patient. After which came the root canal treatment which was again worked on phenomenally by the team of dentists at Opus.",
