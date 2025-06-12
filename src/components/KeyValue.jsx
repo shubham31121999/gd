@@ -2,8 +2,8 @@ import React from 'react'
 import { Layers, UserCheck, ScanLine, MapPin } from "lucide-react";
 const KeyValue = () => {
   return (
-    <section className="w-full bg-white px-4 sm:px-6 md:px-12 py-12">
-  <div className="max-w-8xl mx-auto">
+    <section className="w-full bg-white px-4 sm:px-6 md:px-20 py-12">
+  <div className="max-w-7xl mx-auto">
     
 
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
