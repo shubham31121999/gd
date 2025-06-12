@@ -12,7 +12,7 @@ const Hero = () => {
       {/* Left Half - Text Content */}
       <div className=" w-full md:w-1/2 text-center md:text-left">
         <h1 className="text-black text-3xl md:text-4xl font-bold mb-4 fontFamily-primary">
-          Your Top Dentist in Bandra
+          Your Top Dentist in Bandra -
 
         </h1>
         <h1 className="text-black text-3xl md:text-4xl font-bold mb-4 fontFamily-primary">
