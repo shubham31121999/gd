@@ -76,7 +76,7 @@ const Hero = () => {
       id="name"
       type="text"
       placeholder="Enter your full name"
-      className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen"
+      className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
     />
 
     <label htmlFor="email" className="block text-gray-700 font-medium mb-1">Email</label>
@@ -84,7 +84,7 @@ const Hero = () => {
       id="email"
       type="email"
       placeholder="Enter your email"
-      className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen"
+      className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
     />
 
     <label htmlFor="phone" className="block text-gray-700 font-medium mb-1">Phone</label>
@@ -92,13 +92,13 @@ const Hero = () => {
       id="phone"
       type="tel"
       placeholder="Enter your mobile phone"
-      className="mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen"
+      className="mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
     />
 
     <div className="flex justify-center">
           <button
           type="submit"
-          className="w-10/12  bg-themeLight text-darkGray py-3 rounded font-semibold border-2 border-darkGray hover:bg-darkGray hover:text-white transition"
+          className="w-10/12  bg-themeLight text-darkGray py-3 rounded font-semibold border-2 border-darkGray hover:bg-darkGray hover:text-white transition "
         >
           Book Consultation Now
         </button>
