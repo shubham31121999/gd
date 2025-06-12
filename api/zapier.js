@@ -5,19 +5,19 @@ export default async function handler(req, res) {
   }
 
   try {
-    const response = await fetch("https://hooks.zapier.com/hooks/catch/22908877/uylql6k/", {
+    const zapierResponse = await fetch("https://hooks.zapier.com/hooks/catch/22908877/uylql6k/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(req.body),
     });
 
-    if (!response.ok) {
-      return res.status(500).json({ message: "Zapier Error" });
+    if (!zapierResponse.ok) {
+      return res.status(500).json({ message: "Zapier error" });
     }
 
     return res.status(200).json({ message: "Success" });
-  } catch (error) {
-    console.error("API Error:", error);
-    return res.status(500).json({ message: "Internal Server Error" });
+  } catch (err) {
+    console.error("Serverless function error:", err);
+    return res.status(500).json({ message: "Server error" });
   }
 }
