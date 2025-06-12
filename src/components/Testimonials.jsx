@@ -197,7 +197,8 @@ const Testimonials = () => {
         </h2>
 
         {/* Mobile Slider */}
-        <div className="relative block sm:hidden -mx-3">
+        {/* <div className="relative block sm:hidden-mx-3"> */}
+        <div className="block sm:hidden px-4 relative">
           <Slider {...sliderSettings}>
             {testimonials.map((t, i) => (
               <div key={i} className="px-4">
