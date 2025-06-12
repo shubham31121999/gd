@@ -1,5 +1,6 @@
 import React from 'react'
-import { Layers, UserCheck, ScanLine, MapPin } from "lucide-react";
+import { Layers, UserCheck, ScanLine, MapPin,Star,SmilePlus } from "lucide-react";
+
 const KeyValue = () => {
   return (
     <section className="w-full bg-white px-4 sm:px-6 md:px-20 py-12">
@@ -42,13 +43,13 @@ const KeyValue = () => {
         </p>
       </div>
       <div className="flex items-start gap-4  bg-darkGray border-4 border-gray-200 p-4 rounded-lg shadow-sm">
-        <MapPin className="w-6 h-6 text-themeGreen mt-1" />
+        <Star className="w-6 h-6 text-themeGreen mt-1" />
         <p className="text-themeLight font-medium">
           <strong>4.9★ Google rating:</strong> recognised as the best dentist in Bandra
         </p>
       </div>
       <div className="flex items-start gap-4  bg-darkGray border-4 border-gray-200 p-4 rounded-lg shadow-sm">
-        <MapPin className="w-6 h-6 text-themeGreen mt-1" />
+        <SmilePlus className="w-6 h-6 text-themeGreen mt-1" />
         <p className="text-themeLight font-medium">
           <strong>Patient-Centric Care:</strong> Pain-free treatments with ISO-certified hygiene, entertainment, and anxiety-free techniques.
         </p>

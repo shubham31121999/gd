@@ -1,6 +1,6 @@
 import React from 'react';
 import { Phone, MessageCircle } from 'lucide-react';
-
+import {ReceiptText} from "lucide-react"; 
 function FloatingButtons() {
    const scrollToHeroForm = (e) => {
     e.preventDefault();
@@ -23,9 +23,9 @@ function FloatingButtons() {
        <form onSubmit={scrollToHeroForm}>
         <button
           type="submit"
-          className="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white border-2 border-green-700 shadow-lg hover:bg-white transition-all duration-200"
+          className="w-12 h-12 flex items-center justify-center rounded-full bg-darkGray text-white border-2 border-green-700 shadow-lg hover:bg-green-400 hover:text-darkGray transition-all duration-200"
         >
-          <MessageCircle className="w-5 h-5" />
+          <ReceiptText className="w-5 h-5" />
         </button>
       </form>
     </div>
