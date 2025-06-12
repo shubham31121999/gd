@@ -57,6 +57,7 @@ const ServiceCard = ({ icon, title, desc }) => (
 const Services = () => {
   return (
     <section className="w-full bg-themeGreen py-20 px-4 sm:px-8">
+
       <div className="max-w-7xl mx-auto relative flex flex-col items-center">
         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-12">
           Our Dental Services

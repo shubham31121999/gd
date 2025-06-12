@@ -22,10 +22,11 @@ function App() {
       <Navbar />
       <Banner />
       <Hero />
-      <TrustBadge />
+      
       <KeyValue />
       <Services />
-      <WhyChoose />
+      <TrustBadge />
+      {/* <WhyChoose /> */}
       <Testimonials />
       <Gallery />
       <FAQSection />
