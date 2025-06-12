@@ -11,14 +11,14 @@ const Hero = () => {
       
       {/* Left Half - Text Content */}
       <div className=" w-full md:w-1/2 text-center md:text-left">
-        <h1 className="text-black text-3xl md:text-4xl font-bold mb-4 fontFamily-primary">
-          Your Top Dentist in Bandra -
+        <h1 className="text-black text-4xl md:text-4xl font-bold mb-4 fontFamily-primary">
+          Your Top Dentist in Bandra - 30+ Years of Smiles
 
         </h1>
-        <h1 className="text-black text-3xl md:text-4xl font-bold mb-4 fontFamily-primary">
+        {/* <h1 className="text-black text-3xl md:text-4xl font-bold mb-4 fontFamily-primary">
           30+ Years of Smiles
 
-        </h1>
+        </h1> */}
         <p className="fontFamily-primary text-black text-lg  mb-6">
           From routine check-ups to complete smile makeovers, enjoy painless, state-of-the-art dentistry - all under one roof. If you’ve been searching for a dental clinic near me, discover why families across Mumbai choose OPUS Dental.
 
