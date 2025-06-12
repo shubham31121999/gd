@@ -13,7 +13,7 @@ const images = [
 function Gallery() {
   return (
     <div className="py-10 px-4 max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6 text-center">Gallery</h2>
+      <h2 className="text-3xl font-bold mb-6 text-center">Clinic Gallery</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {images.map((src, index) => (
           <div key={index} className="overflow-hidden rounded-2xl shadow-lg hover:scale-105 transform transition duration-300">

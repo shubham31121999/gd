@@ -4,7 +4,7 @@ const KeyValue = () => {
   return (
     <section className="w-full bg-white px-4 sm:px-6 md:px-20 py-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-darkGray mb-12 text-center">
-          Why Thousands Trust OPUS Dental
+          Why <span className='text-themeLight'>Thousands</span> Trust OPUS Dental
         </h2>
   <div className="max-w-7xl mx-auto">
     

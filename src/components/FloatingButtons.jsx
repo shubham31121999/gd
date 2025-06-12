@@ -14,7 +14,7 @@ function FloatingButtons() {
       {/* Call Button */}
       <a
         href="tel:7045117623"
-        className="w-12 h-12 flex items-center justify-center rounded-full bg-themeLight text-darkGray border-2 border-darkGray shadow-lg hover:bg-darkGray hover:text-white transition-all duration-200"
+        className="w-12 h-12 flex items-center justify-center rounded-full bg-themeLight text-darkGray border-2 border-darkGray shadow-lg hover:bg-white hover:text-black transition-all duration-200"
       >
         <Phone className="w-5 h-5" />
       </a>
@@ -23,7 +23,7 @@ function FloatingButtons() {
        <form onSubmit={scrollToHeroForm}>
         <button
           type="submit"
-          className="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white border-2 border-green-700 shadow-lg hover:bg-green-700 transition-all duration-200"
+          className="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white border-2 border-green-700 shadow-lg hover:bg-white transition-all duration-200"
         >
           <MessageCircle className="w-5 h-5" />
         </button>

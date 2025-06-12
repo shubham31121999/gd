@@ -193,7 +193,7 @@ const Testimonials = () => {
     <section className="w-full bg-themeGreen py-20 px-6 sm:px-8 text-white">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-12 text-center">
-          What Our Patients Say
+          What Our Happy Patients Say
         </h2>
 
         {/* Mobile Slider */}

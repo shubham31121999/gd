@@ -5,7 +5,7 @@ const CTASection = () => {
     <section className="bg-themeGreen text-white py-20 px-4">
   <div className="max-w-7xl mx-auto">
     <div className="text-center mb-12">
-      <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+      <h2 className="text-3xl text-darkGray sm:text-4xl font-bold mb-4">
        Ready to meet a top dentist near you? 
 
       </h2>
@@ -62,7 +62,7 @@ const CTASection = () => {
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center text-center lg:text-left">
         <div className="bg-white text-themeLight rounded-lg shadow-md px-8 py-10 w-full">
           <h3 className="text-2xl font-bold mb-4">📞 Prefer to Speak Directly?</h3>
-          <p className="mb-4 text-lg">
+          <p className="mb-4 text-lg text-darkGray">
             Call us and we’ll help you book your consultation right away.
           </p>
           <a
@@ -74,16 +74,16 @@ const CTASection = () => {
         </div>
         <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
   {/* Clinic Timing */}
-            <div className="bg-white text-themeGreen rounded-lg shadow-md p-6 text-center">
+            <div className="bg-white text-themeLight rounded-lg shadow-md p-6 text-center">
                 <h4 className="text-xl font-bold mb-2">Clinic Timings</h4>
                 <p className="text-gray-700 text-xs">
-                <strong>Mon - Sat:</strong> 10:00 AM – 8:00 PM<br />
+                <strong>Mon - Sat:</strong> 10:00 AM – 6:00 PM<br />
                 <strong>Sunday:</strong> Closed
                 </p>
             </div>
 
             {/* Bandra Address */}
-            <div className="bg-white text-themeGreen rounded-lg shadow-md p-6 text-center">
+            <div className="bg-white text-themeLight rounded-lg shadow-md p-6 text-center">
                 <h4 className="text-xl font-bold mb-2 ">Bandra Clinic</h4>
                 <p className="text-gray-700 text-xs">
                 301, Grace Chambers, Above YES Bank,<br />
@@ -93,7 +93,7 @@ const CTASection = () => {
             </div>
 
             {/* Fort Address */}
-            <div className="bg-white text-themeGreen rounded-lg shadow-md p-6 text-center">
+            <div className="bg-white text-themeLight rounded-lg shadow-md p-6 text-center">
                 <h4 className="text-xl font-bold mb-2">Fort Clinic</h4>
                 <p className="text-gray-700 text-xs">
                 1st Floor, Meher Building,<br />
