@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/logo.png"; // Adjust the path as necessary
-
+import { Phone } from 'lucide-react';
 
 const Navbar = () => {
   return (
@@ -16,13 +16,14 @@ const Navbar = () => {
 
   {/* Contact Button */}
   <div>
-    <a
-      href="#contact"
-      className="px-4 py-2 text-sm sm:text-base bg-themeGreen text-white font-medium rounded hover:bg-opacity-90 transition duration-200"
-    >
-      Contact
-    </a>
-  </div>
+      <a
+        href="tel:70451 17623"
+        className="inline-flex items-center gap-2 px-4 py-2 text-sm sm:text-base bg-themeLight text-darkGray font-medium rounded hover:bg-opacity-90 transition duration-200"
+      >
+        <Phone className="w-5 h-5 animate-vibrate" />
+        70451 17623
+      </a>
+    </div>
 </header>
 
   );

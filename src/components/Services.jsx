@@ -6,70 +6,68 @@ import {
   AlignHorizontalJustifyCenter,
   Baby,
   HeartPulse,
-  Bell,
 } from "lucide-react";
 
+// Services Data
 const services = [
-  { icon: <ShieldCheck className="w-8 h-8 text-themeGreen" />, title: "General Care", desc: "Routine checkups, cleanings, fillings." },
-  { icon: <Smile className="w-8 h-8 text-themeGreen" />, title: "Cosmetic Dentistry", desc: "Whitening, veneers, smile makeovers." },
-  { icon: <AlignHorizontalJustifyCenter className="w-8 h-8 text-themeGreen" />, title: "Orthodontics Dentistry", desc: "Braces & clear aligners." },
-  { icon: <Baby className="w-8 h-8 text-themeGreen" />, title: "Pediatric Dentistry", desc: "Child-friendly dental care." },
-  { icon: <CheckCircle className="w-8 h-8 text-themeGreen" />, title: "Implants & Restorative", desc: "Crowns, bridges, implants." },
-  { icon: <HeartPulse className="w-8 h-8 text-themeGreen" />, title: "Specialty Treatments", desc: "TMJ, Laser Dentistry." },
+  {
+    icon: <ShieldCheck className="w-8 h-8 text-themeGreen" />,
+    title: "General & Preventive Care",
+    desc: "Routine Check-ups, Cleanings (Polishing & EMS Airflow), Fillings, Gum Disease Prevention",
+  },
+  {
+    icon: <Smile className="w-8 h-8 text-themeGreen" />,
+    title: "Advanced Restorative",
+    desc: "Root Canal Therapy, Crowns & Bridges, Dentures, Dental Implants",
+  },
+  {
+    icon: <AlignHorizontalJustifyCenter className="w-8 h-8 text-themeGreen" />,
+    title: "Cosmetic Dentistry",
+    desc: "Teeth Whitening, Smile Makeovers & Veneers, Bonding.",
+  },
+  {
+    icon: <Baby className="w-8 h-8 text-themeGreen" />,
+    title: "Pediatric Dentistry",
+    desc: "Child-friendly care alongside comprehensive preventive care for kids to promote their long term health.",
+  },
+  {
+    icon: <CheckCircle className="w-8 h-8 text-themeGreen" />,
+    title: "Specialty Treatments",
+    desc: "Periodontal (Gum) Therapies, TMJ Disorder Treatment, Laser Dentistry, Full Mouth Rehabilitation",
+  },
+  {
+    icon: <HeartPulse className="w-8 h-8 text-themeGreen" />,
+    title: "Dental Implants",
+    desc: "Permanent, natural-looking teeth solutions to replace missing teeth.",
+  },
 ];
 
+// Service Card Component
 const ServiceCard = ({ icon, title, desc }) => (
-  <div className="w-72 sm:w-80 md:w-96 min-h-[160px] bg-white p-6 rounded-lg shadow text-center hover:shadow-lg transition-shadow duration-200 flex flex-col justify-between">
+  <div className="w-full sm:w-[300px] h-[200px] bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-200 flex flex-col justify-between text-center">
     <div>
-      <div className="flex justify-center mb-2">{icon}</div>
-      <h3 className="font-semibold text-xl sm:text-2xl text-gray-800">{title}</h3>
-      <p className="text-sm sm:text-base text-gray-600 mt-1">{desc}</p>
+      <div className="flex justify-center mb-4">{icon}</div>
+      <h3 className="font-semibold text-xl text-gray-800">{title}</h3>
+      <p className="text-sm text-gray-600 mt-2">{desc}</p>
     </div>
   </div>
 );
 
-
+// Services Section
 const Services = () => {
   return (
     <section className="w-full bg-themeGreen py-20 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto relative flex flex-col items-center">
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-8">
-          Our Dental Services     </h2>
-        {/* Top Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-8 mb-6">
-          <div className="flex justify-end">
-            <ServiceCard {...services[0]} />
-          </div>
-          <div className="flex justify-start">
-            <ServiceCard {...services[1]} />
-          </div>
-        </div>
+        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-12">
+          Our Dental Services
+        </h2>
 
-        {/* Middle Row with more vertical spacing */}
-        <div className="flex flex-col sm:flex-row justify-center items-center sm:gap-52 gap-8 mt-12 mb-12">
-          <div className="flex justify-end">
-            <ServiceCard {...services[2]} />
-          </div>
-          <div className="flex justify-start">
-            <ServiceCard {...services[3]} />
-          </div>
+        {/* Grid Layout for Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center">
+          {services.map((service, index) => (
+            <ServiceCard key={index} {...service} />
+          ))}
         </div>
-
-        {/* Bottom Row with reduced spacing */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
-          <div className="flex justify-end">
-            <ServiceCard {...services[4]} />
-          </div>
-          <div className="flex justify-start">
-            <ServiceCard {...services[5]} />
-          </div>
-        </div>
-
-        {/* Center Tooth Icon */}
-        <div className="hidden sm:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 ">
-            <Bell className="w-40 h-40 text-white opacity-90" />
-        </div>
-
       </div>
     </section>
   );

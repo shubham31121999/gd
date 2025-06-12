@@ -16,8 +16,20 @@ export default {
         themeGreen: '#919734',
         themeLight: '#d4da46',
       },
-       boxShadow: {
-        'green': '0 4px 20px rgba(34, 197, 94, 0.5)',
+      animation: {
+        vibrate: 'vibrate 0.5s linear infinite',
+      },
+      keyframes: {
+        vibrate: {
+      '0%': { transform: 'translateX(0)' },
+      '25%': { transform: 'translateX(-2px)' },
+      '50%': { transform: 'translateX(2px)' },
+      '75%': { transform: 'translateX(-2px)' },
+      '100%': { transform: 'translateX(0)' },
+    },
+      },
+      boxShadow: {
+        green: '0 4px 20px rgba(34, 197, 94, 0.5)',
       },
       fontFamily: {
         primary: ['Oswald', 'sans-serif'],
@@ -30,8 +42,8 @@ export default {
         secondary: '400',
         text: '400',
         accent: '500',
-      }
+      },
     },
   },
   plugins: [],
-}
+};

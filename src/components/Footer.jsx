@@ -30,11 +30,11 @@ const Footer = () => {
         {/* Desktop View: Call Button */}
         <div className="hidden lg:flex lg:w-1/4 justify-end">
           <a
-            href="tel:+912345678900"
-            className="flex items-center gap-2 bg-white text-themeGreen font-semibold px-6 py-3 rounded hover:bg-green-100 transition"
+            href="tel:70451 17623"
+            className="flex items-center gap-2 bg-white text-themeLight font-semibold px-6 py-3 rounded hover:bg-green-100 transition"
           >
-            <Phone className="w-5 h-5" />
-            +91 23456 78900
+            <Phone className="w-5 h-5 animate-vibrate" />
+            70451 17623
           </a>
         </div>
 
@@ -45,11 +45,11 @@ const Footer = () => {
 
           {/* Call Button */}
           <a
-            href="tel:+912345678900"
+            href="tel:70451 17623"
             className="flex items-center gap-2 bg-white text-themeGreen font-semibold px-4 py-2 rounded hover:bg-green-100 transition"
           >
-            <Phone className="w-5 h-5" />
-            Call Now
+            <Phone className="w-5 h-5 animate-vibrate" />
+            70451 17623
           </a>
         </div>
       </div>
