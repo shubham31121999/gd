@@ -18,10 +18,10 @@ const Navbar = () => {
   <div>
       <a
         href="tel:70451 17623"
-        className="inline-flex items-center gap-2 px-4 py-2 text-sm sm:text-base bg-themeLight text-darkGray font-medium rounded hover:bg-opacity-90 transition duration-200"
+        className="inline-flex items-center gap-2 px-4 py-2 text-md sm:text-base bg-themeLight text-darkGray  rounded hover:bg-white transition duration-200 font-bold"
       >
         <Phone className="w-5 h-5 animate-vibrate" />
-        70451 17623
+        7045117623
       </a>
     </div>
 </header>

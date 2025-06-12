@@ -18,7 +18,7 @@ function TrustBadge() {
         </h2>
 
         {/* Trust Badges */}
-        <div className="flex items-center justify-center  gap-4 mb-6">
+        {/* <div className="flex items-center justify-center  gap-4 mb-6">
         <div className="fontFamily-primary flex items-center gap-2 text-themeGreen font-medium">
             <ShieldCheck className="w-5 h-5" />
             30+ Years Experience
@@ -27,7 +27,7 @@ function TrustBadge() {
             <Medal className="w-5 h-5" />
             Certified Safety Protocols
         </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Right Half - Form */}
