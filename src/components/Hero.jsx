@@ -62,7 +62,7 @@ const Hero = () => {
     <input
       id="phone"
       type="tel"
-      placeholder="Enter your phone"
+      placeholder="Enter your mobile phone"
       className="mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen"
     />
 
