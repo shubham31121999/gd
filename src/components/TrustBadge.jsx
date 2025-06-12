@@ -5,7 +5,7 @@ function TrustBadge() {
     <div>
       <section className="w-full  bg-white bg-cover bg-center   text-themeLight">
   {/* Optional overlay for readability */}
-  <div className="bg-black bg-opacity-60 p-6 md:p-10 rounded-lg">
+  <div className=" p-6 md:p-10 rounded-lg">
     <div className="flex flex-col md:flex-row items-center justify-between gap-10">
       
       {/* Left Half - Text Content */}
