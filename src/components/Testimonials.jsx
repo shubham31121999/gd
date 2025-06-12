@@ -96,7 +96,7 @@ import "slick-carousel/slick/slick-theme.css";
 // ⭐ Testimonials array
 const testimonials = [
   {
-    name: "Aparna S.",
+    name: "Ashoo Samant",
     location: "Bandra",
     treatment: "Smile Makeover",
     content:
@@ -104,7 +104,7 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "Rahul M.",
+    name: "Alvito D'Cunha",
     location: "Fort",
     treatment: "Implants",
     content:
@@ -112,7 +112,7 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "Sneha T.",
+    name: "Mazdiar",
     location: "Mumbai",
     treatment: "Root Canal",
     content:
