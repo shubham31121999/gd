@@ -6,11 +6,14 @@ const CTASection = () => {
   <div className="max-w-7xl mx-auto">
     <div className="text-center mb-12">
       <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-        Ready for Your Dream Smile? Let’s Make It Happen.
+       Ready to meet a top dentist near you? 
+
       </h2>
-      <p className="text-lg">
-        Book your Appointment Now!
-      </p>
+      <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+       Book your Appointment Now!
+
+      </h2>
+      
     </div>
 
     {/* Flex Container for Form + CTA */}
@@ -63,10 +66,10 @@ const CTASection = () => {
             Call us and we’ll help you book your consultation right away.
           </p>
           <a
-            href="tel:70451 17623"
+            href="tel:7045117623"
             className="inline-block border-2 border-black bg-themeLight text-darkGray font-semibold px-6 py-3 rounded hover:bg-darkGray  hover:text-white transition"
           >
-            70451 17623
+            7045117623
           </a>
         </div>
         <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">

@@ -4,7 +4,7 @@ import { ShieldCheck, Medal } from "lucide-react"; // Use lucide for icons or sw
 
 const Hero = () => {
   return (
-   <section className="w-full bg-primary text-white">
+   <section className="w-full bg-primary text-white" id="hero-form">
   {/* Optional overlay for readability */}
   <div className=" p-6 md:p-10 rounded-lg">
     <div className="flex flex-col md:flex-row items-center justify-between gap-10">
@@ -12,7 +12,11 @@ const Hero = () => {
       {/* Left Half - Text Content */}
       <div className=" w-full md:w-1/2 text-center md:text-left">
         <h1 className="text-black text-3xl md:text-4xl font-bold mb-4 fontFamily-primary">
-          Your Top Dentist in Bandra -30+ Years of Smiles
+          Your Top Dentist in Bandra
+
+        </h1>
+        <h1 className="text-black text-3xl md:text-4xl font-bold mb-4 fontFamily-primary">
+          30+ Years of Smiles
 
         </h1>
         <p className="fontFamily-primary text-black text-lg  mb-6">

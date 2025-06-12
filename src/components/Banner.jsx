@@ -1,6 +1,6 @@
 import React from 'react';
-import desktopBanner from '../assets/Banner3.jpg';
-import mobileBanner from '../assets/banner4.jpg';
+import desktopBanner from '../assets/Banner3.webp';
+import mobileBanner from '../assets/banner4.webp';
 
 function Banner() {
   return (
