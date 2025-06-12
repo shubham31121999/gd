@@ -44,12 +44,15 @@ const CTASection = () => {
             required
           />
         </div>
-        <button
+        <div className="flex justify-center">
+          <button
           type="submit"
-          className="w-full bg-darkGray text-white py-3 rounded font-semibold hover:bg-themeLight transition"
+          className="w-10/12  bg-themeLight text-darkGray py-3 rounded font-semibold border-2 border-darkGray hover:bg-darkGray hover:text-white transition"
         >
-          Book Consultation
+          Book Consultation Now
         </button>
+        </div>
+        
       </form>
 
       {/* Call-To-Action Box */}
@@ -61,7 +64,7 @@ const CTASection = () => {
           </p>
           <a
             href="tel:70451 17623"
-            className="inline-block bg-themeLight text-white font-semibold px-6 py-3 rounded hover:bg-darkGray transition"
+            className="inline-block border-2 border-black bg-themeLight text-darkGray font-semibold px-6 py-3 rounded hover:bg-darkGray  hover:text-white transition"
           >
             70451 17623
           </a>

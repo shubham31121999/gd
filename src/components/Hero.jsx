@@ -61,12 +61,14 @@ const Hero = () => {
       className="mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen"
     />
 
-    <button
-      type="submit"
-      className="bg-themeLight text-black w-full px-4 py-2 rounded border-2 border-black fontFamily-primary font-bold hover:bg-opacity-90 transition"
-    >
-      Book Appointment Now
-    </button>
+    <div className="flex justify-center">
+          <button
+          type="submit"
+          className="w-10/12  bg-themeLight text-darkGray py-3 rounded font-semibold border-2 border-darkGray hover:bg-darkGray hover:text-white transition"
+        >
+          Book Consultation Now
+        </button>
+        </div>
   </form>
       </div>
     </div>

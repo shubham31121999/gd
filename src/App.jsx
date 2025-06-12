@@ -9,6 +9,8 @@ import FAQSection from './components/FAQSection'
 import CTASection from './components/CTASection'
 import Footer from './components/Footer'
 import Banner from './components/Banner'
+import FloatingButtons from './components/FloatingButtons';
+
 import Gallery from './components/Gallery'
 import './App.css'
 
@@ -29,7 +31,7 @@ function App() {
       <FAQSection />
       <CTASection />
       <Footer />
-      
+      <FloatingButtons />
     </>
   )
 }
