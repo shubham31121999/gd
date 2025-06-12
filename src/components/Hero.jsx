@@ -20,7 +20,7 @@ const Hero = () => {
 
         </h1> */}
         <p className="fontFamily-primary text-black text-lg  mb-6">
-          From routine check-ups to complete smile makeovers, enjoy painless, state-of-the-art dentistry - all under one roof. If you’ve been searching for a dental clinic near me, discover why families across Mumbai choose OPUS Dental.
+          From routine check-ups to complete smile makeovers, enjoy<span className="text-themeGreen"> painless, state-of-the-art dentistry - all under one roof. </span>If you’ve been searching for a dental clinic near me, discover why families across Mumbai choose OPUS Dental.
 
         </p>
 
