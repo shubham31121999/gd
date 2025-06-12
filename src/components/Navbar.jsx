@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/logo.png"; // Adjust the path as necessary
+import logo from "../assets/logo.webp"; // Adjust the path as necessary
 import { Phone } from 'lucide-react';
 
 const Navbar = () => {
