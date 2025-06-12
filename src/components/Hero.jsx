@@ -1,9 +1,11 @@
 import React from "react";
 import { ShieldCheck, Medal } from "lucide-react"; // Use lucide for icons or swap as needed
 
-
+import { useNavigate } from "react-router-dom"; // ✅ useNavigate must be imported from react-router-dom
 const Hero = () => {
-   const handleSubmit = async (e) => {
+   const navigate = useNavigate(); // ✅ must be inside the component
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = {
@@ -13,23 +15,20 @@ const Hero = () => {
     };
 
     try {
-      const response = await fetch("https://hooks.zapier.com/hooks/catch/22908877/uylql6k/", {
+      const response = await fetch("/api/zapier", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
-        alert("Form submitted successfully!");
         e.target.reset();
+        navigate("/thankyou"); // ✅ this redirects
       } else {
-        alert("Failed to submit form.");
+        alert("Submission failed");
       }
     } catch (error) {
-      console.error("Submission error:", error);
-      alert("Something went wrong.");
+      alert("Something went wrong");
     }
   };
   return (
