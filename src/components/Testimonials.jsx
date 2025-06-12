@@ -100,7 +100,7 @@ const testimonials = [
     location: "Bandra",
     treatment: "Smile Makeover",
     content:
-      "I was always afraid of dentists, but OPUS completely changed that. The procedure was painless and the staff was so comforting. Now I can’t stop smiling with confidence!",
+      "Opus Dental specialities has been constant in terms of dental related issues of mine but this time I walked in for a cosmetic transformation. After feeling not so confident about my bad set of teeth I planned to undergo treatment at Opus and it was indeed a quick, planned and painless procedure. Huge shoutout to Dr. Burzin and his team of doctors for the great work they put in.",
     rating: 5,
   },
   {
@@ -108,7 +108,7 @@ const testimonials = [
     location: "Fort",
     treatment: "Implants",
     content:
-      "Got my implants done here and I’m beyond satisfied. The precision, tech, and friendly care made the experience amazing.",
+      "My first consultation with Opus dental clinic is something that I'll always remember cause I remember being very late but Doctor Burzin Khan was patient and to my surprise it was the first time I saw a dentist wait for his patient. After which came the root canal treatment which was again worked on phenomenally by the team of dentists at Opus.",
     rating: 5,
   },
   {
@@ -116,7 +116,7 @@ const testimonials = [
     location: "Mumbai",
     treatment: "Root Canal",
     content:
-      "Booked an emergency appointment for a root canal. They handled everything so smoothly. Clean, modern and truly professional!",
+      "Just 1 day before an important Family function I happened to have an accidental fall due to which I lost 2 teeth of mine and I wanted to go for some temporary treatment so that I could attend the function with confidence and Dr Burzin Khan came to my rescue.",
     rating: 5,
   },
 ];

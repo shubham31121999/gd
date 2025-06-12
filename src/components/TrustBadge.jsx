@@ -3,7 +3,7 @@ import { ShieldCheck, Medal } from "lucide-react";
 function TrustBadge() {
   return (
     <div>
-      <section className="w-full  bg-white bg-cover bg-center   text-themeLight">
+      <section className="w-full  bg-white bg-cover bg-center   text-darkGray">
   {/* Optional overlay for readability */}
   <div className=" p-6 md:p-10 rounded-lg">
     <div className="flex flex-col md:flex-row items-center justify-between gap-10">
@@ -11,7 +11,7 @@ function TrustBadge() {
       {/* Left Half - Text Content */}
       <div className=" w-full md:w-1/2 text-center md:text-left">
         <h2 className=" text-2xl md:text-4xl font-bold mb-4 font-primary">
-          Don't wait for symptoms to get worse.
+          Don't wait for symptoms to get <span className='text-themeLight'>worse.</span>
         </h2>
         <h2 className=" text-2xl md:text-4xl font-bold mb-4 font-primary">
           Schedule your consultation with an expert now.

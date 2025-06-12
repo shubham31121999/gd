@@ -9,7 +9,7 @@ const CTASection = () => {
         Ready for Your Dream Smile? Let’s Make It Happen.
       </h2>
       <p className="text-lg">
-        Book your veneer consultation now and get personalized advice from Dr. Khan.
+        Book your Appointment Now!
       </p>
     </div>
 

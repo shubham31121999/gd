@@ -3,24 +3,44 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    question: "Is dental treatment painful at OPUS?",
+    question: "How soon can I see a dentist near me?",
     answer:
-      "Not at all! At OPUS Dental, we prioritize pain-free procedures using gentle techniques and advanced technology. Most patients report minimal discomfort.",
+      "Same-day or next-day slots; emergencies treated immediately.",
   },
   {
-    question: "How do I book an appointment?",
+    question: "Will a routine cleaning or filling hurt? ",
     answer:
-      "You can book an appointment online via our website or call either of our clinics in Bandra or Fort. Same-day appointments are often available for emergencies.",
+      "Discomfort is minimal. We use topical numbing gels, state-of-the art ultra-fine instruments and gentle techniques so most patients feel only mild pressure.",
   },
   {
-    question: "Do you offer specialized treatments?",
+    question: "What sterilisation protocols do you follow? ",
     answer:
-      "Yes. We offer a wide range of specialties including implants, orthodontics, cosmetic dentistry, pediatric dentistry, and TMJ treatments.",
+      "Every instrument passes through ultrasonic cleaning, sealed Class-B autoclave cycles and UV room sanitation - exceeding Indian Dental Council guidelines for infection control.",
   },
   {
-    question: "Are your hygiene and sterilization protocols certified?",
+    question: "Do you offer flexible payment options? ",
     answer:
-      "Absolutely. We follow ISO-certified sterilization standards and maintain strict infection control to ensure your safety and peace of mind.",
+      "Yes. For larger treatment plans, we can arrange EMI schedules. Our front desk will guide you through the simple approval process.",
+  },
+  {
+    question: "Do you treat kids and adults? ",
+    answer:
+      "Absolutely. Our paediatric dentists use child-friendly “tell-show-do” methods, flavour-choice fluoride gels and distraction aids so kids stay relaxed.",
+  },
+  {
+    question: "How long does a routine scale-and-polish take? ",
+    answer:
+      "Around 25 minutes chair-time; add a few minutes if you choose an Air-Flow polish for extra brightness.",
+  },
+  {
+    question: "Can you handle dental emergencies? ",
+    answer:
+      "Yes. We reserve urgent care slots daily for toothaches, trauma or swelling. Call the emergency number listed above for priority assistance.",
+  },
+    {
+    question: "Do you accept insurance or reimbursements?",
+    answer:
+      "We issue detailed treatment invoices and codes so you can claim with your insurer. Our desk can verify eligibility quickly.",
   },
 ];
 

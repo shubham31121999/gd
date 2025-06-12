@@ -17,3 +17,5 @@ Atx cabinet @ 3400 all inclusive
 
 Smps 500w @ 3600 all inclusive  -- ₹2,189 ,Amazon
 ( ANT SPORTS) model no vS00L
+
+a{margin-bottom:10px;color:#fff;font-size:24px;transition:color .3s}
