@@ -46,7 +46,7 @@ const Hero = () => {
     <input
       id="name"
       type="text"
-      placeholder="Enter your name"
+      placeholder="Enter your full name"
       className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen"
     />
 
