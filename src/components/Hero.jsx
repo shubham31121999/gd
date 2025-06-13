@@ -9,26 +9,22 @@ const handleSubmit = async (e) => {
   const form = e.target;
   const formData = new FormData(form);
 
-  // Add a timestamp or any extra data
-  formData.append("timestamp", new Date().toLocaleString("en-IN"));
-
   try {
     const response = await fetch("https://hooks.zapier.com/hooks/catch/22908877/uylql6k/", {
       method: "POST",
-      body: formData, // IMPORTANT: Do not set content-type
+      body: formData, // Do NOT set content-type manually!
     });
 
     if (response.ok) {
       alert("Form submitted successfully!");
       form.reset();
     } else {
-      const errorText = await response.text();
-      console.error("Zapier error response:", errorText);
-      alert("Submission failed. Check console.");
+      console.error("Zapier error:", await response.text());
+      alert("Form submission failed. Please try again.");
     }
-  } catch (error) {
-    console.error("Submission error:", error);
-    alert("Something went wrong. Check console.");
+  } catch (err) {
+    console.error("Fetch error:", err);
+    alert("Something went wrong. Check console for details.");
   }
 };
   return (
