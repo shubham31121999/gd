@@ -8,9 +8,6 @@ function Hero() {
     phone: '',
   });
 
-  const [responseMsg, setResponseMsg] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -18,28 +15,14 @@ function Hero() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setResponseMsg('');
-
     try {
-      const res = await fetch('https://hooks.zapier.com/hooks/catch/22908877/uylql6k/', {
+      await fetch('https://hooks.zapier.com/hooks/catch/22908877/uycgz9d/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-
-      if (res.ok) {
-        setResponseMsg('Thank you! Your request has been received.');
-      } else {
-        setResponseMsg('Submission failed. Please try again.');
-      }
     } catch (error) {
-      console.error('Zapier submission error:', error);
-      setResponseMsg('Something went wrong. Please try again.');
-    } finally {
-      setIsSubmitting(false);
+      console.error('Error submitting to Zapier:', error);
     }
   };
 
@@ -72,63 +55,49 @@ function Hero() {
 
           {/* Right Half - Form */}
           <div className="w-full md:w-1/2">
-            <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-lg w-full">
-              <label htmlFor="name" className="block text-gray-700 font-medium mb-1">
-                Name
-              </label>
-              <input
-                name="name"
-                id="name"
-                type="text"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Enter your full name"
-                required
-                className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
-              />
+            <form id="consultationForm" class="bg-white p-6 rounded shadow-lg w-full">
+  <label for="name" class="block text-gray-700 font-medium mb-1">Name</label>
+  <input
+    name="name"
+    id="name"
+    type="text"
+    placeholder="Enter your full name"
+    required
+    class="mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
+  />
 
-              <label htmlFor="email" className="block text-gray-700 font-medium mb-1">
-                Email
-              </label>
-              <input
-                name="email"
-                id="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Enter your email"
-                required
-                className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
-              />
+  <label for="email" class="block text-gray-700 font-medium mb-1">Email</label>
+  <input
+    name="email"
+    id="email"
+    type="email"
+    placeholder="Enter your email"
+    required
+    class="mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
+  />
 
-              <label htmlFor="phone" className="block text-gray-700 font-medium mb-1">
-                Phone
-              </label>
-              <input
-                name="phone"
-                id="phone"
-                type="tel"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="Enter your mobile number"
-                required
-                className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
-              />
+  <label for="phone" class="block text-gray-700 font-medium mb-1">Phone</label>
+  <input
+    name="phone"
+    id="phone"
+    type="tel"
+    placeholder="Enter your mobile number"
+    required
+    class="mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
+  />
 
-              <div className="flex justify-center">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-10/12 bg-themeLight text-darkGray py-3 rounded font-semibold border-2 border-darkGray hover:bg-darkGray hover:text-white transition"
-                >
-                  {isSubmitting ? 'Submitting...' : 'Book Consultation Now'}
-                </button>
-              </div>
+  <div class="flex justify-center">
+    <button
+      type="submit"
+      id="submitBtn"
+      class="w-10/12 bg-themeLight text-darkGray py-3 rounded font-semibold border-2 border-darkGray hover:bg-darkGray hover:text-white transition"
+    >
+      Book Consultation Now
+    </button>
+  </div>
 
-              {responseMsg && (
-                <p className="text-center mt-4 text-sm text-gray-700">{responseMsg}</p>
-              )}
-            </form>
+  <p id="responseMsg" class="text-center mt-4 text-sm text-gray-700"></p>
+</form>
           </div>
         </div>
       </div>
