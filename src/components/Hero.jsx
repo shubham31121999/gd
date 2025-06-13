@@ -32,15 +32,17 @@ const navigate = useNavigate();
       });
 
       if (response.ok) {
-        form.reset();
-        navigate("/thankyou");
-      } else {
-        alert("Form submission failed. Please try again.");
-      }
-    } catch (error) {
-      alert("An error occurred. Please try again later.");
-      console.error("Form Error:", error);
+      form.reset();
+      alert("Form submitted!");
+    } else {
+      const errorText = await response.text();
+      console.error("Server response:", errorText);
+      alert("Submission failed: " + errorText);
     }
+  } catch (err) {
+    console.error("Error submitting form:", err);
+    alert("Something went wrong. Check console for details.");
+  }
   };
 
   return (
