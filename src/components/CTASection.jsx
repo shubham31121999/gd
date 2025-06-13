@@ -1,6 +1,30 @@
 import React from "react";
 
 const CTASection = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      message: e.target.message.value,
+    };
+
+    try {
+      await fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTY4MDYzMTA0MzE1MjY0NTUzNDUxMzYi_pc", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      alert("Thanks for contacting! I will get back to you soon.");
+      e.target.reset();
+    } catch (err) {
+      alert("Failed to send. Please try again.");
+      console.error(err);
+    }
+  };
   return (
     <section className="bg-themeGreen text-white py-20 px-4">
   <div className="max-w-7xl mx-auto">
@@ -19,44 +43,47 @@ const CTASection = () => {
     {/* Flex Container for Form + CTA */}
     <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
       {/* Contact Form */}
-      <form className="bg-white p-6 rounded-lg shadow-md text-left text-gray-800 w-full lg:w-1/2">
-        <div className="mb-4">
-          <label className="block mb-1 font-semibold">Name</label>
-          <input
-            type="text"
-            placeholder="Your full name"
-            className="w-full p-3 border border-gray-300 rounded"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block mb-1 font-semibold">Email</label>
-          <input
-            type="email"
-            placeholder="you@example.com"
-            className="w-full p-3 border border-gray-300 rounded"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block mb-1 font-semibold">Phone</label>
-          <input
-            type="tel"
-            placeholder="Mobile number"
-            className="w-full p-3 border border-gray-300 rounded"
-            required
-          />
-        </div>
-        <div className="flex justify-center">
-          <button
-          type="submit"
-          className="w-10/12  bg-themeLight text-darkGray py-3 rounded font-semibold border-2 border-darkGray hover:bg-darkGray hover:text-white transition"
-        >
-          Book Consultation Now
-        </button>
-        </div>
-        
-      </form>
+      <form onSubmit={handleSubmit} className="md:w-1/2 flex flex-col space-y-6">
+              <label className="flex flex-col">
+                <span className="mb-1 font-semibold">Name</span>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Your Name"
+                  className="p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-orange-400 transition"
+                />
+              </label>
+
+              <label className="flex flex-col">
+                <span className="mb-1 font-semibold">Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="your.email@example.com"
+                  className="p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-orange-400 transition"
+                />
+              </label>
+
+              <label className="flex flex-col">
+                <span className="mb-1 font-semibold">Message</span>
+                <textarea
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Write your message..."
+                  className="p-3 rounded bg-gray-800 border border-gray-700 resize-none focus:outline-none focus:border-orange-400 transition"
+                />
+              </label>
+
+              <button
+                type="submit"
+                className="bg-transparent font-bold text-orange-400 border-2 border-orange-400 rounded-md px-6 py-3 hover:bg-cyan-400 hover:text-black transition duration-300"
+              >
+                Send Message
+              </button>
+        </form>
 
       {/* Call-To-Action Box */}
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center text-center lg:text-left">
