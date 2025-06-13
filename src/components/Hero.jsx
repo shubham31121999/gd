@@ -1,41 +1,35 @@
 import React, { useState } from "react";
 import { ShieldCheck, Medal } from "lucide-react";
 
-export default function Hero() {
+function Hero() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: ''
+    message: '',
   });
 
-  const [status, setStatus] = useState('');
+  const [responseMsg, setResponseMsg] = useState('');
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('Submitting...');
 
     try {
-      const response = await fetch("https://www.opusdentalspecialities.com/dentistry/send-to-zapier.php", {
-        method: "POST",
+      const res = await fetch('https://yourdomain.com/form-handler.php', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
-        setStatus("✅ Form submitted successfully!");
-        setFormData({ name: '', email: '', phone: '' });
-      } else {
-        setStatus("❌ Error submitting form.");
-      }
+      const data = await res.text(); // or res.json() if PHP sends JSON
+      setResponseMsg(data);
     } catch (error) {
-      console.error("Error:", error);
-      setStatus("❌ Something went wrong.");
+      setResponseMsg('Something went wrong. Please try again.');
     }
   };
 
@@ -120,3 +114,4 @@ export default function Hero() {
     </section>
   );
 }
+export default Hero;
