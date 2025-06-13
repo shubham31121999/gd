@@ -1,43 +1,44 @@
-import React from "react";
-import { ShieldCheck, Medal } from "lucide-react"; // Use lucide for icons or swap as needed
-import { useNavigate } from "react-router-dom";
-import { useState } from 'react';
-// ✅ useNavigate must be imported from react-router-dom
-export default function Hero()  {
-const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+import React, { useState } from "react";
+import { ShieldCheck, Medal } from "lucide-react";
+
+export default function Hero() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
   });
 
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('Submitting...');
+    setStatus("Submitting...");
 
     try {
-      const response = await fetch("https://www.opusdentalspecialities.com/dentistry/send-to-zapier.php", {
+      const response = await fetch("https://hooks.zapier.com/hooks/catch/1234567/abcXYZ/", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
 
-      const result = await response.json();
-
-      if (result.status === 'success') {
+      if (response.ok) {
         setStatus("Form submitted successfully!");
+        setFormData({ name: "", email: "", phone: "" });
       } else {
         setStatus("Error submitting form.");
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error submitting form:", error);
       setStatus("Something went wrong.");
     }
   };
@@ -82,30 +83,40 @@ const [formData, setFormData] = useState({
 
     <label htmlFor="name" className="block text-gray-700 font-medium mb-1">Name</label>
     <input
-    name="name"
-      id="name"
-      type="text"
-      placeholder="Enter your full name"
-      className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
-    />
+                name="name"
+                id="name"
+                type="text"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Enter your full name"
+                className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
+                required
+              />
+
 
     <label htmlFor="email" className="block text-gray-700 font-medium mb-1">Email</label>
     <input
-    name="email"
-      id="email"
-      type="email"
-      placeholder="Enter your email"
-      className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
-    />
+                name="email"
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter your email"
+                className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
+                required
+              />
 
     <label htmlFor="phone" className="block text-gray-700 font-medium mb-1">Phone</label>
-    <input
-     name="phone"
-      id="phone"
-      type="tel"
-      placeholder="Enter your mobile phone"
-      className="mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
-    />
+ <input
+                name="phone"
+                id="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Enter your mobile number"
+                className="mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
+                required
+              />
 
     <div className="flex justify-center">
           <button
