@@ -1,44 +1,45 @@
 import React from "react";
 import { ShieldCheck, Medal } from "lucide-react"; // Use lucide for icons or swap as needed
-
-import { useNavigate } from "react-router-dom"; // ✅ useNavigate must be imported from react-router-dom
+import { useNavigate } from "react-router-dom";
+// ✅ useNavigate must be imported from react-router-dom
 const Hero = () => {
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
 
-  const form = e.target;
-  const formData = new FormData(form);
-
-  // 👇 Add timestamp
-  const now = new Date();
-  const formattedTimestamp = now.toLocaleString("en-US", {
-    year: "2-digit",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: false,
-  });
-
-  formData.append("timestamp", formattedTimestamp); // Key name: "timestamp"
-
-  try {
-    const response = await fetch("https://hooks.zapier.com/hooks/catch/22908877/uylql6k/", {
-      method: "POST",
-      body: formData,
+    // Append timestamp
+    const now = new Date();
+    const formattedTimestamp = now.toLocaleString("en-US", {
+      year: "2-digit",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
     });
 
-    if (response.ok) {
-      form.reset();
-      navigate("/thankyou");
-    } else {
-      alert("Submission failed");
+    formData.append("timestamp", formattedTimestamp);
+
+    try {
+      const response = await fetch("https://hooks.zapier.com/hooks/catch/22908877/uylql6k/", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        form.reset();
+        navigate("/thankyou");
+      } else {
+        alert("Submission failed");
+      }
+    } catch (error) {
+      alert("Something went wrong");
     }
-  } catch (error) {
-    alert("Something went wrong");
-  }
-};
+  };
   return (
    <section className="w-full bg-primary text-white" id="hero-form">
   {/* Optional overlay for readability */}
