@@ -18,18 +18,13 @@ export default function Hero() {
     e.preventDefault();
     setStatus('Submitting...');
 
-    const formEncoded = new URLSearchParams();
-    formEncoded.append("name", formData.name);
-    formEncoded.append("email", formData.email);
-    formEncoded.append("phone", formData.phone);
-
     try {
-      const response = await fetch("https://hooks.zapier.com/hooks/catch/22908877/uylql6k/", {
+      const response = await fetch("https://www.opusdentalspecialities.com/dentistry/send-to-zapier.php", {
         method: "POST",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
+          "Content-Type": "application/json",
         },
-        body: formEncoded.toString()
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {
