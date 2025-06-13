@@ -19,7 +19,7 @@ export default function Hero() {
     setStatus('Submitting...');
 
     try {
-      const response = await fetch("https://hooks.zapier.com/hooks/catch/YOUR_ZAPIER_WEBHOOK_URL", {
+      const response = await fetch("https://hooks.zapier.com/hooks/catch/22908877/uylql6k/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
