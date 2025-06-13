@@ -43,7 +43,7 @@ const CTASection = () => {
     {/* Flex Container for Form + CTA */}
     <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
       {/* Contact Form */}
-      <form onSubmit={handleSubmit} className="md:w-1/2 flex flex-col space-y-6">
+      {/* <form onSubmit={handleSubmit} className="md:w-1/2 flex flex-col space-y-6">
               <label className="flex flex-col">
                 <span className="mb-1 font-semibold">Name</span>
                 <input
@@ -83,7 +83,8 @@ const CTASection = () => {
               >
                 Send Message
               </button>
-        </form>
+        </form> */}
+        <script src='https://forms.pabbly.com/embed/1ydO-722613692?w=350'></script>
 
       {/* Call-To-Action Box */}
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center text-center lg:text-left">
