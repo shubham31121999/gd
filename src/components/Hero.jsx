@@ -2,29 +2,26 @@ import React, { useState } from "react";
 import { ShieldCheck, Medal } from "lucide-react";
 
 function Hero() {
-  const handleSubmit = async (e) => {
+const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
+  const navigate = useNavigate();
+
+  const handleChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleSubmit = async e => {
     e.preventDefault();
-    const formData = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      phone: e.target.phone.value,
-    };
 
-    try {
-      await fetch("https://hooks.zapier.com/hooks/catch/22908877/uycgz9d/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    await fetch("https://hooks.zapier.com/hooks/catch/22908877/uycgz9d/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      mode: "no-cors",
+      body: JSON.stringify(formData)
+    });
 
-      alert("Thanks for contacting! I will get back to you soon.");
-      e.target.reset();
-    } catch (err) {
-      alert("Failed to send. Please try again.");
-      console.error(err);
-    }
+    // Redirect to thank you page
+    navigate("/thankyou");
   };
 
   return (
@@ -56,49 +53,36 @@ function Hero() {
 
           {/* Right Half - Form */}
           <div className="w-full md:w-1/2">
-            <form onSubmit={handleSubmit} id="consultationForm" class="bg-white p-6 rounded shadow-lg w-full">
-  <label  class="block text-gray-700 font-medium mb-1">Name</label>
-  <input
-     type="text"
-              name="name"
-              required
-    placeholder="Enter your full name"
-    
-    class="mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
-  />
-
-  <label  class="block text-gray-700 font-medium mb-1">Email</label>
-  <input
-    type="email"
-              name="email"
-              required
-    placeholder="Enter your email"
-    
-    class="mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
-  />
-
-  <label  class="block text-gray-700 font-medium mb-1">Phone</label>
-  <input
-    name="phone"
-    
-    type="tel"
-    placeholder="Enter your mobile number"
-    required
-    class="mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
-  />
-
-  
-    <button
-      type="submit"
-      
-      class="w-10/12 bg-themeLight text-darkGray py-3 rounded font-semibold border-2 border-darkGray hover:bg-darkGray hover:text-white transition"
-    >
-      Book Consultation Now
-    </button>
+             <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Your Phone"
+          value={formData.phone}
+          onChange={handleChange}
+        />
+        <button type="submit">Submit</button>
+      </form>
   
 
   
-</form>
+
           </div>
         </div>
       </div>
