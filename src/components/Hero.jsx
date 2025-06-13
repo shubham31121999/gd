@@ -27,7 +27,7 @@ const navigate = useNavigate();
 
     try {
       const response = await fetch("https://hooks.zapier.com/hooks/catch/22908877/uylql6k/", {
-        method: "POST",
+        method: "post",
         body: formData,
       });
 
@@ -79,7 +79,7 @@ const navigate = useNavigate();
 
       {/* Right Half - Form */}
       <div className="w-full md:w-1/2">
-        <form  onSubmit={handleSubmit} method="post" className="bg-white p-6 rounded shadow-green w-full">
+        <form  onSubmit={handleSubmit}  className="bg-white p-6 rounded shadow-green w-full">
    
 
     <label htmlFor="name" className="block text-gray-700 font-medium mb-1">Name</label>
