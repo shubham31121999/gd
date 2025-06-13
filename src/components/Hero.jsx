@@ -1,32 +1,46 @@
 import React from "react";
 import { ShieldCheck, Medal } from "lucide-react"; // Use lucide for icons or swap as needed
 import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
 // ✅ useNavigate must be imported from react-router-dom
-const Hero = () => {
-const handleSubmit = async (e) => {
-  e.preventDefault();
+export default function Hero()  {
+const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
 
-  const form = e.target;
-  const formData = new FormData(form);
+  const [status, setStatus] = useState('');
 
-  try {
-    const response = await fetch("https://hooks.zapier.com/hooks/catch/22908877/uylql6k/", {
-      method: "POST",
-      body: formData, // Do NOT set content-type manually!
-    });
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-    if (response.ok) {
-      alert("Form submitted successfully!");
-      form.reset();
-    } else {
-      console.error("Zapier error:", await response.text());
-      alert("Form submission failed. Please try again.");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('Submitting...');
+
+    try {
+      const response = await fetch("https://www.opusdentalspecialities.com/dentistry/send-to-zapier.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (result.status === 'success') {
+        setStatus("Form submitted successfully!");
+      } else {
+        setStatus("Error submitting form.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setStatus("Something went wrong.");
     }
-  } catch (err) {
-    console.error("Fetch error:", err);
-    alert("Something went wrong. Check console for details.");
-  }
-};
+  };
   return (
    <section className="w-full bg-primary text-white" id="hero-form">
   {/* Optional overlay for readability */}
@@ -110,5 +124,4 @@ const handleSubmit = async (e) => {
   );
 };
 
-export default Hero;
 // 
