@@ -1,29 +1,45 @@
-
+import React, { useState } from "react";
 import { ShieldCheck, Medal } from "lucide-react";
 
 function Hero() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+  });
+
+  const [responseMsg, setResponseMsg] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      message: e.target.message.value,
-    };
+    setIsSubmitting(true);
+    setResponseMsg('');
 
     try {
-      await fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTY4MDYzMTA0MzE1MjY0NTUzNDUxMzYi_pc", {
-        method: "POST",
+      const res = await fetch('https://hooks.zapier.com/hooks/catch/22908877/uylql6k/', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
 
-      alert("Thanks for contacting! I will get back to you soon.");
-      e.target.reset();
-    } catch (err) {
-      alert("Failed to send. Please try again.");
-      console.error(err);
+      if (res.ok) {
+        setResponseMsg('Thank you! Your request has been received.');
+      } else {
+        setResponseMsg('Submission failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Zapier submission error:', error);
+      setResponseMsg('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -56,47 +72,63 @@ function Hero() {
 
           {/* Right Half - Form */}
           <div className="w-full md:w-1/2">
-            <form onSubmit={handleSubmit} className="md:w-1/2 flex flex-col space-y-6">
-              <label className="flex flex-col">
-                <span className="mb-1 font-semibold">Name</span>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  placeholder="Your Name"
-                  className="p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-orange-400 transition"
-                />
+            <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-lg w-full">
+              <label htmlFor="name" className="block text-gray-700 font-medium mb-1">
+                Name
               </label>
+              <input
+                name="name"
+                id="name"
+                type="text"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Enter your full name"
+                required
+                className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
+              />
 
-              <label className="flex flex-col">
-                <span className="mb-1 font-semibold">Email</span>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="your.email@example.com"
-                  className="p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-orange-400 transition"
-                />
+              <label htmlFor="email" className="block text-gray-700 font-medium mb-1">
+                Email
               </label>
+              <input
+                name="email"
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter your email"
+                required
+                className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
+              />
 
-              <label className="flex flex-col">
-                <span className="mb-1 font-semibold">Message</span>
-                <textarea
-                  name="message"
-                  rows="5"
-                  required
-                  placeholder="Write your message..."
-                  className="p-3 rounded bg-gray-800 border border-gray-700 resize-none focus:outline-none focus:border-orange-400 transition"
-                />
+              <label htmlFor="phone" className="block text-gray-700 font-medium mb-1">
+                Phone
               </label>
+              <input
+                name="phone"
+                id="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Enter your mobile number"
+                required
+                className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
+              />
 
-              <button
-                type="submit"
-                className="bg-transparent font-bold text-orange-400 border-2 border-orange-400 rounded-md px-6 py-3 hover:bg-cyan-400 hover:text-black transition duration-300"
-              >
-                Send Message
-              </button>
-        </form>
+              <div className="flex justify-center">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-10/12 bg-themeLight text-darkGray py-3 rounded font-semibold border-2 border-darkGray hover:bg-darkGray hover:text-white transition"
+                >
+                  {isSubmitting ? 'Submitting...' : 'Book Consultation Now'}
+                </button>
+              </div>
+
+              {responseMsg && (
+                <p className="text-center mt-4 text-sm text-gray-700">{responseMsg}</p>
+              )}
+            </form>
           </div>
         </div>
       </div>
