@@ -3,48 +3,34 @@ import { ShieldCheck, Medal } from "lucide-react"; // Use lucide for icons or sw
 import { useNavigate } from "react-router-dom";
 // ✅ useNavigate must be imported from react-router-dom
 const Hero = () => {
-const navigate = useNavigate();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
 
-    const form = e.target;
-    const formData = new FormData(form);
+  // Add a timestamp or any extra data
+  formData.append("timestamp", new Date().toLocaleString("en-IN"));
 
-    // Add timestamp
-    const now = new Date();
-    const formattedTimestamp = now.toLocaleString("en-US", {
-      year: "2-digit",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false,
+  try {
+    const response = await fetch("https://hooks.zapier.com/hooks/catch/22908877/uylql6k/", {
+      method: "POST",
+      body: formData, // IMPORTANT: Do not set content-type
     });
 
-    formData.append("timestamp", formattedTimestamp);
-
-    try {
-      const response = await fetch("https://hooks.zapier.com/hooks/catch/22908877/uylql6k/", {
-        method: "post",
-        body: formData,
-      });
-
-      if (response.ok) {
+    if (response.ok) {
+      alert("Form submitted successfully!");
       form.reset();
-      alert("Form submitted!");
     } else {
       const errorText = await response.text();
-      console.error("Server response:", errorText);
-      alert("Submission failed: " + errorText);
+      console.error("Zapier error response:", errorText);
+      alert("Submission failed. Check console.");
     }
-  } catch (err) {
-    console.error("Error submitting form:", err);
-    alert("Something went wrong. Check console for details.");
+  } catch (error) {
+    console.error("Submission error:", error);
+    alert("Something went wrong. Check console.");
   }
-  };
-
+};
   return (
    <section className="w-full bg-primary text-white" id="hero-form">
   {/* Optional overlay for readability */}
