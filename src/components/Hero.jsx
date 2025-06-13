@@ -57,45 +57,45 @@ function Hero() {
           {/* Right Half - Form */}
           <div className="w-full md:w-1/2">
             <form onSubmit={handleSubmit} className="md:w-1/2 flex flex-col space-y-6">
-          <label className="flex flex-col">
-            <span className="mb-1 font-semibold">Name</span>
-            <input
-              type="text"
-              name="name"
-              required
-              placeholder="Your Name"
-              className="p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-orange-400 transition"
-            />
-          </label>
+              <label className="flex flex-col">
+                <span className="mb-1 font-semibold">Name</span>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Your Name"
+                  className="p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-orange-400 transition"
+                />
+              </label>
 
-          <label className="flex flex-col">
-            <span className="mb-1 font-semibold">Email</span>
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="your.email@example.com"
-              className="p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-orange-400 transition"
-            />
-          </label>
+              <label className="flex flex-col">
+                <span className="mb-1 font-semibold">Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="your.email@example.com"
+                  className="p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-orange-400 transition"
+                />
+              </label>
 
-          <label className="flex flex-col">
-            <span className="mb-1 font-semibold">Message</span>
-            <textarea
-              name="message"
-              rows="5"
-              required
-              placeholder="Write your message..."
-              className="p-3 rounded bg-gray-800 border border-gray-700 resize-none focus:outline-none focus:border-orange-400 transition"
-            />
-          </label>
+              <label className="flex flex-col">
+                <span className="mb-1 font-semibold">Message</span>
+                <textarea
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Write your message..."
+                  className="p-3 rounded bg-gray-800 border border-gray-700 resize-none focus:outline-none focus:border-orange-400 transition"
+                />
+              </label>
 
-          <button
-            type="submit"
-            className="bg-transparent font-bold text-orange-400 border-2 border-orange-400 rounded-md px-6 py-3 hover:bg-cyan-400 hover:text-black transition duration-300"
-          >
-            Send Message
-          </button>
+              <button
+                type="submit"
+                className="bg-transparent font-bold text-orange-400 border-2 border-orange-400 rounded-md px-6 py-3 hover:bg-cyan-400 hover:text-black transition duration-300"
+              >
+                Send Message
+              </button>
         </form>
           </div>
         </div>
