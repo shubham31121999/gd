@@ -2,49 +2,45 @@ import React, { useState } from "react";
 import { ShieldCheck, Medal } from "lucide-react";
 
 function Hero() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const [responseMsg, setResponseMsg] = useState('');
-
-  const handleChange = (e) => {
-    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      message: e.target.message.value,
+    };
 
     try {
-      const res = await fetch('https://yourdomain.com/form-handler.php', {
-        method: 'POST',
+      await fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTY4MDYzMTA0MzE1MjY0NTUzNDUxMzYi_pc", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
-      const data = await res.text(); // or res.json() if PHP sends JSON
-      setResponseMsg(data);
-    } catch (error) {
-      setResponseMsg('Something went wrong. Please try again.');
+      alert("Thanks for contacting! I will get back to you soon.");
+      e.target.reset();
+    } catch (err) {
+      alert("Failed to send. Please try again.");
+      console.error(err);
     }
   };
 
   return (
-    <section className="w-full bg-primary text-white" id="hero-form">
-      <div className="p-6 md:p-10 rounded-lg">
+    <section className="w-full bg-primary text-white py-10" id="hero-form">
+      <div className="max-w-6xl mx-auto p-6 md:p-10 rounded-lg">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
-          
           {/* Left Half */}
           <div className="w-full md:w-1/2 text-center md:text-left">
-            <h1 className="text-black text-4xl md:text-4xl font-bold mb-4 fontFamily-primary">
-              Your Top Dentist in Bandra - <span className="text-themeGreen">30+ Years</span> of Smiles
+            <h1 className="text-black text-4xl md:text-5xl font-bold mb-4 fontFamily-primary leading-tight">
+              Your Top Dentist in Bandra – <span className="text-themeGreen">30+ Years</span> of Smiles
             </h1>
             <p className="fontFamily-primary text-black text-lg mb-6">
-              From routine check-ups to complete smile makeovers, enjoy <span className="text-themeGreen">painless, state-of-the-art dentistry</span> - all under one roof. If you’ve been searching for a dental clinic near me, discover why families across Mumbai choose <span className="text-themeGreen">OPUS Dental</span>.
+              From routine check-ups to complete smile makeovers, enjoy{" "}
+              <span className="text-themeGreen">painless, state-of-the-art dentistry</span> – all under one roof. If
+              you’ve been searching for a dental clinic near me, discover why families across Mumbai choose{" "}
+              <span className="text-themeGreen">OPUS Dental</span>.
             </p>
             <div className="flex items-center justify-center md:justify-start gap-4 mb-6">
               <div className="fontFamily-primary flex items-center gap-2 text-themeGreen font-medium">
@@ -60,58 +56,52 @@ function Hero() {
 
           {/* Right Half - Form */}
           <div className="w-full md:w-1/2">
-            <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-green w-full">
-              <label htmlFor="name" className="block text-gray-700 font-medium mb-1">Name</label>
-              <input
-                name="name"
-                id="name"
-                type="text"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Enter your full name"
-                required
-                className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
-              />
+            <form onSubmit={handleSubmit} className="md:w-1/2 flex flex-col space-y-6">
+          <label className="flex flex-col">
+            <span className="mb-1 font-semibold">Name</span>
+            <input
+              type="text"
+              name="name"
+              required
+              placeholder="Your Name"
+              className="p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-orange-400 transition"
+            />
+          </label>
 
-              <label htmlFor="email" className="block text-gray-700 font-medium mb-1">Email</label>
-              <input
-                name="email"
-                id="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Enter your email"
-                required
-                className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
-              />
+          <label className="flex flex-col">
+            <span className="mb-1 font-semibold">Email</span>
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="your.email@example.com"
+              className="p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-orange-400 transition"
+            />
+          </label>
 
-              <label htmlFor="phone" className="block text-gray-700 font-medium mb-1">Phone</label>
-              <input
-                name="phone"
-                id="phone"
-                type="tel"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="Enter your mobile number"
-                required
-                className="mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
-              />
+          <label className="flex flex-col">
+            <span className="mb-1 font-semibold">Message</span>
+            <textarea
+              name="message"
+              rows="5"
+              required
+              placeholder="Write your message..."
+              className="p-3 rounded bg-gray-800 border border-gray-700 resize-none focus:outline-none focus:border-orange-400 transition"
+            />
+          </label>
 
-              <div className="flex justify-center">
-                <button
-                  type="submit"
-                  className="w-10/12 bg-themeLight text-darkGray py-3 rounded font-semibold border-2 border-darkGray hover:bg-darkGray hover:text-white transition"
-                >
-                  Book Consultation Now
-                </button>
-              </div>
-
-              {status && <p className="text-center mt-4 text-sm text-gray-700">{status}</p>}
-            </form>
+          <button
+            type="submit"
+            className="bg-transparent font-bold text-orange-400 border-2 border-orange-400 rounded-md px-6 py-3 hover:bg-cyan-400 hover:text-black transition duration-300"
+          >
+            Send Message
+          </button>
+        </form>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
 export default Hero;
