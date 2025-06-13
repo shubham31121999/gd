@@ -3,14 +3,15 @@ import { ShieldCheck, Medal } from "lucide-react"; // Use lucide for icons or sw
 import { useNavigate } from "react-router-dom";
 // ✅ useNavigate must be imported from react-router-dom
 const Hero = () => {
-  const navigate = useNavigate();
+const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const form = e.target;
     const formData = new FormData(form);
 
-    // Append timestamp
+    // Add timestamp
     const now = new Date();
     const formattedTimestamp = now.toLocaleString("en-US", {
       year: "2-digit",
@@ -32,15 +33,16 @@ const Hero = () => {
 
       if (response.ok) {
         form.reset();
-        // navigate("/thankyou");
-        alert("Thank you for booking your consultation with us! We will get back to you shortly.");
+        navigate("/thankyou");
       } else {
-        alert("Submission failed");
+        alert("Form submission failed. Please try again.");
       }
     } catch (error) {
-      alert("Something went wrong");
+      alert("An error occurred. Please try again later.");
+      console.error("Form Error:", error);
     }
   };
+
   return (
    <section className="w-full bg-primary text-white" id="hero-form">
   {/* Optional overlay for readability */}
@@ -77,7 +79,7 @@ const Hero = () => {
 
       {/* Right Half - Form */}
       <div className="w-full md:w-1/2">
-        <form  onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-green w-full">
+        <form  onSubmit={handleSubmit} method="post" className="bg-white p-6 rounded shadow-green w-full">
    
 
     <label htmlFor="name" className="block text-gray-700 font-medium mb-1">Name</label>
