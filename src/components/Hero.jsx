@@ -3,36 +3,42 @@ import { ShieldCheck, Medal } from "lucide-react"; // Use lucide for icons or sw
 
 import { useNavigate } from "react-router-dom"; // ✅ useNavigate must be imported from react-router-dom
 const Hero = () => {
-   const navigate = useNavigate(); // ✅ must be inside the component
-
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const formData = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      phone: e.target.phone.value,
-    };
+  const form = e.target;
+  const formData = new FormData(form);
 
-    try {
-      const response = await fetch("/api/zapier-proxy.php", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify(formData),
-});
+  // 👇 Add timestamp
+  const now = new Date();
+  const formattedTimestamp = now.toLocaleString("en-US", {
+    year: "2-digit",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  });
 
-      if (response.ok) {
-        e.target.reset();
-        navigate("/thankyou"); // ✅ this redirects
-      } else {
-        alert("Submission failed");
-      }
-    } catch (error) {
-      alert("Something went wrong");
+  formData.append("timestamp", formattedTimestamp); // Key name: "timestamp"
+
+  try {
+    const response = await fetch("https://hooks.zapier.com/hooks/catch/22908877/uylql6k/", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.ok) {
+      form.reset();
+      navigate("/thankyou");
+    } else {
+      alert("Submission failed");
     }
-  };
+  } catch (error) {
+    alert("Something went wrong");
+  }
+};
   return (
    <section className="w-full bg-primary text-white" id="hero-form">
   {/* Optional overlay for readability */}
@@ -74,6 +80,7 @@ const Hero = () => {
 
     <label htmlFor="name" className="block text-gray-700 font-medium mb-1">Name</label>
     <input
+    name="name"
       id="name"
       type="text"
       placeholder="Enter your full name"
@@ -82,6 +89,7 @@ const Hero = () => {
 
     <label htmlFor="email" className="block text-gray-700 font-medium mb-1">Email</label>
     <input
+    name="email"
       id="email"
       type="email"
       placeholder="Enter your email"
@@ -90,6 +98,7 @@ const Hero = () => {
 
     <label htmlFor="phone" className="block text-gray-700 font-medium mb-1">Phone</label>
     <input
+     name="phone"
       id="phone"
       type="tel"
       placeholder="Enter your mobile phone"
