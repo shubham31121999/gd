@@ -32,7 +32,8 @@ const Hero = () => {
 
       if (response.ok) {
         form.reset();
-        navigate("/thankyou");
+        // navigate("/thankyou");
+        alert("Thank you for booking your consultation with us! We will get back to you shortly.");
       } else {
         alert("Submission failed");
       }
