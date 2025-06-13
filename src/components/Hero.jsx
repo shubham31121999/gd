@@ -80,7 +80,7 @@ function Hero() {
   <label  class="block text-gray-700 font-medium mb-1">Phone</label>
   <input
     name="phone"
-    id="phone"
+    
     type="tel"
     placeholder="Enter your mobile number"
     required
@@ -90,14 +90,14 @@ function Hero() {
   
     <button
       type="submit"
-      id="submitBtn"
+      
       class="w-10/12 bg-themeLight text-darkGray py-3 rounded font-semibold border-2 border-darkGray hover:bg-darkGray hover:text-white transition"
     >
       Book Consultation Now
     </button>
   
 
-  <p id="responseMsg" class="text-center mt-4 text-sm text-gray-700"></p>
+  
 </form>
           </div>
         </div>
