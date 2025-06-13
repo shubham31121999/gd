@@ -2,27 +2,28 @@ import React, { useState } from "react";
 import { ShieldCheck, Medal } from "lucide-react";
 
 function Hero() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      phone: e.target.phone.value,
+    };
+
     try {
-      await fetch('https://hooks.zapier.com/hooks/catch/22908877/uycgz9d/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      await fetch("https://hooks.zapier.com/hooks/catch/22908877/uycgz9d/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(formData),
       });
-    } catch (error) {
-      console.error('Error submitting to Zapier:', error);
+
+      alert("Thanks for contacting! I will get back to you soon.");
+      e.target.reset();
+    } catch (err) {
+      alert("Failed to send. Please try again.");
+      console.error(err);
     }
   };
 
@@ -55,28 +56,28 @@ function Hero() {
 
           {/* Right Half - Form */}
           <div className="w-full md:w-1/2">
-            <form id="consultationForm" class="bg-white p-6 rounded shadow-lg w-full">
-  <label for="name" class="block text-gray-700 font-medium mb-1">Name</label>
+            <form onSubmit={handleSubmit} id="consultationForm" class="bg-white p-6 rounded shadow-lg w-full">
+  <label  class="block text-gray-700 font-medium mb-1">Name</label>
   <input
-    name="name"
-    id="name"
-    type="text"
+     type="text"
+              name="name"
+              required
     placeholder="Enter your full name"
-    required
+    
     class="mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
   />
 
-  <label for="email" class="block text-gray-700 font-medium mb-1">Email</label>
+  <label  class="block text-gray-700 font-medium mb-1">Email</label>
   <input
-    name="email"
-    id="email"
     type="email"
+              name="email"
+              required
     placeholder="Enter your email"
-    required
+    
     class="mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
   />
 
-  <label for="phone" class="block text-gray-700 font-medium mb-1">Phone</label>
+  <label  class="block text-gray-700 font-medium mb-1">Phone</label>
   <input
     name="phone"
     id="phone"
@@ -86,7 +87,7 @@ function Hero() {
     class="mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen text-darkGray"
   />
 
-  <div class="flex justify-center">
+  
     <button
       type="submit"
       id="submitBtn"
@@ -94,7 +95,7 @@ function Hero() {
     >
       Book Consultation Now
     </button>
-  </div>
+  
 
   <p id="responseMsg" class="text-center mt-4 text-sm text-gray-700"></p>
 </form>
