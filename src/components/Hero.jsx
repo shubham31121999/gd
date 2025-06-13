@@ -18,24 +18,29 @@ export default function Hero() {
     e.preventDefault();
     setStatus('Submitting...');
 
+    const formEncoded = new URLSearchParams();
+    formEncoded.append("name", formData.name);
+    formEncoded.append("email", formData.email);
+    formEncoded.append("phone", formData.phone);
+
     try {
       const response = await fetch("https://hooks.zapier.com/hooks/catch/22908877/uylql6k/", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: JSON.stringify(formData)
+        body: formEncoded.toString()
       });
 
       if (response.ok) {
-        setStatus("Form submitted successfully!");
+        setStatus("✅ Form submitted successfully!");
         setFormData({ name: '', email: '', phone: '' });
       } else {
-        setStatus("Error submitting form.");
+        setStatus("❌ Error submitting form.");
       }
     } catch (error) {
       console.error("Error:", error);
-      setStatus("Something went wrong.");
+      setStatus("❌ Something went wrong.");
     }
   };
 
