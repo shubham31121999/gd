@@ -1,6 +1,47 @@
-import React from 'react';
+
 import { ShieldCheck, Medal } from "lucide-react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function TrustBadge() {
+  const navigate = useNavigate();
+   const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+  
+    const handleSubmit = async (event) => {
+      event.preventDefault(); // Prevent default form submission behavior
+      console.log(event, "event");
+
+    if (!fullName || !email || !phone) {
+      alert("Please fill in all fields before submitting.");
+      return; // Stop execution if validation fails
+    }
+  
+      const formData = {
+        fullName: fullName,
+        email: email,
+        phone: phone,
+        // timestamp: new Date().toISOString(), // Add a timestamp
+      };
+  
+      try {
+        const response = await fetch(
+          "https://hooks.zapier.com/hooks/catch/22908877/uy461gm",
+          {
+            method: "POST",
+            // headers: {
+            //   "Content-Type": "application/json",
+            // },
+            body: JSON.stringify(formData),
+          }
+        );
+  
+        console.log(response, "response");
+         navigate("/thankyou");
+      } catch (error) {
+        console.error("Error during API call:", error);
+      }
+    };
   return (
     <div>
       <section className="w-full  bg-white bg-cover bg-center   text-darkGray">
@@ -32,42 +73,48 @@ function TrustBadge() {
 
       {/* Right Half - Form */}
       <div className="w-full md:w-1/2">
-        <form className="bg-white p-6 rounded shadow-green w-full">
-   
+      <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-green w-full">
+            <div>
+              <label className="block text-sm text-darkGray font-medium"> Full Name</label>
+              <input
+                type="text"
+                className="w-full border border-gray-300 text-black rounded px-3 py-2 mt-1"
+                placeholder="Full Name"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-sm text-darkGray font-medium">Email</label>
+              <input
+                type="email"
+                className="w-full border border-gray-300 text-black rounded px-3 py-2 mt-1"
+                placeholder="Your Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-sm text-darkGray font-medium">Phone</label>
+              <input
+                type="tel"
+                className="mb-3 w-full border border-gray-300 px-4 py-2 rounded text-darkGray focus:outline-none focus:ring-2 focus:ring-themeGreen"
+                placeholder="Your Phone Number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
 
-    <label htmlFor="name" className="block text-gray-700 font-medium mb-1">Name</label>
-    <input
-      id="name"
-      type="text"
-      placeholder="Enter your full name"
-      className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen"
-    />
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="w-10/12  bg-themeLight text-darkGray py-3 rounded font-semibold border-2 border-darkGray hover:bg-darkGray hover:text-white transition"
+              >
+                Book My Consultation
+              </button>
+            </div>
+          </form>
 
-    <label htmlFor="email" className="block text-gray-700 font-medium mb-1">Email</label>
-    <input
-      id="email"
-      type="email"
-      placeholder="Enter your email"
-      className="fontFamily-primary mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen"
-    />
-
-    <label htmlFor="phone" className="block text-gray-700 font-medium mb-1">Phone</label>
-    <input
-      id="phone"
-      type="tel"
-      placeholder="Enter your mobile number"
-      className="mb-3 w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-themeGreen"
-    />
-
-        <div className="flex justify-center">
-          <button
-          type="submit"
-          className="w-10/12  bg-themeLight text-darkGray py-3 rounded font-semibold border-2 border-darkGray hover:bg-darkGray hover:text-white transition"
-        >
-          Book Consultation Now
-        </button>
-        </div>
-  </form>
       </div>
     </div>
   </div>

@@ -13,8 +13,10 @@ import FloatingButtons from './components/FloatingButtons';
 
 import Gallery from './components/Gallery'
 import './App.css'
+import ThankYouPage from './components/Thankyou'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-function App() {
+function HomePage() {
   
 
   return (
@@ -34,8 +36,16 @@ function App() {
       <Footer />
       <FloatingButtons />
     </>
-  )
+  );
 }
 
-export default App
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/thankyou" element={<ThankYouPage />} />
+    </Routes>
+  );
+}
 
+export default App;

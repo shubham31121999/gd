@@ -1,28 +1,46 @@
 import React, { useState } from "react";
 import { ShieldCheck, Medal } from "lucide-react";
-
-function Hero() {
-const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
+import { useNavigate } from "react-router-dom";
+const Hero = () => {
   const navigate = useNavigate();
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
 
-  const handleChange = e =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+    console.log(event, "event");
+    if (!fullName || !email || !phone) {
+      alert("Please fill in all fields before submitting.");
+      return; // Stop execution if validation fails
+    }
 
-  const handleSubmit = async e => {
-    e.preventDefault();
+    const formData = {
+      fullName: fullName,
+      email: email,
+      phone: phone,
+      // timestamp: new Date().toISOString(), // Add a timestamp
+    };
 
-    await fetch("https://hooks.zapier.com/hooks/catch/22908877/uycgz9d/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      mode: "no-cors",
-      body: JSON.stringify(formData)
-    });
+    try {
+      const response = await fetch(
+        "https://hooks.zapier.com/hooks/catch/22908877/uy461gm/",
+        {
+          method: "POST",
+          // headers: {
+          //   "Content-Type": "application/json",
+          // },
+          body: JSON.stringify(formData),
+        }
+      );
 
-    // Redirect to thank you page
-    navigate("/thankyou");
+      console.log(response, "response");
+       navigate("/thankyou");
+    } catch (error) {
+      console.error("Error during API call:", error);
+    }
   };
+
 
   return (
     <section className="w-full bg-primary text-white py-10" id="hero-form">
@@ -53,32 +71,49 @@ const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
 
           {/* Right Half - Form */}
           <div className="w-full md:w-1/2">
-             <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="tel"
-          name="phone"
-          placeholder="Your Phone"
-          value={formData.phone}
-          onChange={handleChange}
-        />
-        <button type="submit">Submit</button>
-      </form>
+          <h3 className="text-xl md:text-xl font-bold mb-8 leading-tight text-center text-darkGray"><span className="text-themeGreen">Relief</span> Starts Today! <br></br> Book Your Appointment Here</h3>
+<form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-green w-full">
+            <div>
+              <label className="block text-sm text-darkGray font-medium"> Full Name</label>
+              <input
+                type="text"
+                className="w-full border border-gray-300 text-black rounded px-3 py-2 mt-1"
+                placeholder="Full Name"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-sm text-darkGray font-medium">Email</label>
+              <input
+                type="email"
+                className="w-full border border-gray-300 text-black rounded px-3 py-2 mt-1"
+                placeholder="Your Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-sm text-darkGray font-medium">Phone</label>
+              <input
+                type="tel"
+                className="mb-3 w-full border border-gray-300 px-4 py-2 rounded text-darkGray focus:outline-none focus:ring-2 focus:ring-themeGreen"
+                placeholder="Your Phone Number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
+
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="w-10/12  bg-themeLight text-darkGray py-3 rounded font-semibold border-2 border-darkGray hover:bg-darkGray hover:text-white transition"
+              >
+                Book Appointment Now
+              </button>
+            </div>
+          </form>
+
   
 
   

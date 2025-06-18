@@ -1,30 +1,46 @@
-import React from "react";
 
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const CTASection = () => {
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      message: e.target.message.value,
-    };
+  const navigate = useNavigate();
+   const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+  
+    const handleSubmit = async (event) => {
+      event.preventDefault(); // Prevent default form submission behavior
+      console.log(event, "event");
 
-    try {
-      await fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTY4MDYzMTA0MzE1MjY0NTUzNDUxMzYi_pc", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      alert("Thanks for contacting! I will get back to you soon.");
-      e.target.reset();
-    } catch (err) {
-      alert("Failed to send. Please try again.");
-      console.error(err);
+    if (!fullName || !email || !phone) {
+      alert("Please fill in all fields before submitting.");
+      return; // Stop execution if validation fails
     }
-  };
+  
+      const formData = {
+        fullName: fullName,
+        email: email,
+        phone: phone,
+        // timestamp: new Date().toISOString(), // Add a timestamp
+      };
+  
+      try {
+        const response = await fetch(
+          "https://hooks.zapier.com/hooks/catch/22908877/uy461gm",
+          {
+            method: "POST",
+            // headers: {
+            //   "Content-Type": "application/json",
+            // },
+            body: JSON.stringify(formData),
+          }
+        );
+  
+        console.log(response, "response");
+         navigate("/thankyou");
+      } catch (error) {
+        console.error("Error during API call:", error);
+      }
+    };
   return (
     <section className="bg-themeGreen text-white py-20 px-4">
   <div className="max-w-7xl mx-auto">
@@ -43,47 +59,47 @@ const CTASection = () => {
     {/* Flex Container for Form + CTA */}
     <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
       {/* Contact Form */}
-      <form onSubmit={handleSubmit} className="md:w-1/2 flex flex-col space-y-6">
-              <label className="flex flex-col">
-                <span className="mb-1 font-semibold">Name</span>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  placeholder="Your Name"
-                  className="p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-orange-400 transition"
-                />
-              </label>
+      <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-green w-full">
+            <div>
+              <label className="block text-sm text-darkGray font-medium"> Full Name</label>
+              <input
+                type="text"
+                className="w-full border border-gray-300 text-black rounded px-3 py-2 mt-1"
+                placeholder="Full Name"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-sm text-darkGray font-medium">Email</label>
+              <input
+                type="email"
+                className="w-full border border-gray-300 text-black rounded px-3 py-2 mt-1"
+                placeholder="Your Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-sm text-darkGray font-medium">Phone</label>
+              <input
+                type="tel"
+                className="mb-3 w-full border border-gray-300 px-4 py-2 rounded text-darkGray focus:outline-none focus:ring-2 focus:ring-themeGreen"
+                placeholder="Your Phone Number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
 
-              <label className="flex flex-col">
-                <span className="mb-1 font-semibold">Email</span>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="your.email@example.com"
-                  className="p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-orange-400 transition"
-                />
-              </label>
-
-              <label className="flex flex-col">
-                <span className="mb-1 font-semibold">Message</span>
-                <textarea
-                  name="message"
-                  rows="5"
-                  required
-                  placeholder="Write your message..."
-                  className="p-3 rounded bg-gray-800 border border-gray-700 resize-none focus:outline-none focus:border-orange-400 transition"
-                />
-              </label>
-
+            <div className="flex justify-center">
               <button
                 type="submit"
-                className="bg-transparent font-bold text-orange-400 border-2 border-orange-400 rounded-md px-6 py-3 hover:bg-cyan-400 hover:text-black transition duration-300"
+                className="w-10/12  bg-themeLight text-darkGray py-3 rounded font-semibold border-2 border-darkGray hover:bg-darkGray hover:text-white transition"
               >
-                Send Message
+                Book Appointment Now
               </button>
-        </form>
+            </div>
+          </form>
 
       {/* Call-To-Action Box */}
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center text-center lg:text-left">
