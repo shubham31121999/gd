@@ -30,6 +30,7 @@ const Footer = () => {
         {/* Desktop View: Call Button */}
         <div className="hidden lg:flex lg:w-1/4 justify-end">
           <a
+          id="footer-call-button"
             href="tel:7045117623"
             className="flex items-center gap-2 bg-themeLight text-black font-md font-bold px-6 py-3 rounded hover:text-black hover:bg-white transition"
           >

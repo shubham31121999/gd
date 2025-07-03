@@ -17,6 +17,7 @@ const Navbar = () => {
   {/* Contact Button */}
   <div>
       <a
+      id="navbar-call-button"
         href="tel:7045117623"
         className="inline-flex items-center gap-2 px-4 py-2 text-md sm:text-base bg-themeLight text-darkGray  rounded hover:bg-white transition duration-200 font-bold"
       >

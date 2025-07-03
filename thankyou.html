@@ -1,32 +1,280 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
-    <script type="text/javascript">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You - Appointment Confirmed</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Oswald', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+    }
+
+    :root {
+      --dark-gray: #222222;
+      --theme-light: #919734;
+    }
+
+    .navbar {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background-color: var(--dark-gray);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      height: 60px;
+      width: auto;
+    }
+
+    .contact-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: var(--theme-light);
+      color: var(--dark-gray);
+      border-radius: 0.375rem;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .contact-button:hover {
+      background-color: #fff;
+    }
+
+    .phone-icon {
+      width: 20px;
+      height: 20px;
+      animation: vibrate 0.6s infinite;
+    }
+
+    @keyframes vibrate {
+      0% { transform: translate(0); }
+      20% { transform: translate(-1px, 1px); }
+      40% { transform: translate(-1px, -1px); }
+      60% { transform: translate(1px, 1px); }
+      80% { transform: translate(1px, -1px); }
+      100% { transform: translate(0); }
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .main-content img {
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 2rem;
+    }
+
+    .main-content h1 {
+      font-size: 2rem;
+      color: #111;
+      margin-bottom: 1rem;
+    }
+
+    .main-content p {
+      font-size: 1rem;
+      color: #444;
+    }
+
+    .footer {
+      background-color: var(--dark-gray);
+      color: #fff;
+      padding: 2rem 1rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .logo-img {
+      height: 80px;
+    }
+
+    .map-frame {
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      height: 260px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .mobile-footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+    }
+
+    .mobile-logo {
+      height: 50px;
+    }
+
+    .mobile-call-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--theme-light);
+      color: #000;
+      font-weight: bold;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .mobile-call-btn:hover {
+      background-color: #fff;
+    }
+
+    .desktop-only {
+      display: none;
+    }
+
+    .mobile-only {
+      display: flex;
+    }
+
+    @media (min-width: 768px) {
+      .main-content {
+        flex-direction: row;
+        text-align: left;
+        justify-content: center;
+        gap: 2rem;
+      }
+
+      .main-content img {
+        margin-bottom: 0;
+      }
+
+      .footer-container {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        
+      }
+
+      .footer-logo,
+      .footer-call {
+        width: 25%;
+      }
+
+      .footer-map {
+        width: 50%;
+      }
+
+      .desktop-only {
+        display: block;
+      }
+
+      .mobile-only {
+        display: none;
+      }
+    }
+  </style>
+   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "ryd88qxm4y");
-  </script>
+</script>
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-N3VQ8SSV');</script>
-<!-- End Google Tag Manager -->
-  </head>
-  <body>
-    <!-- Google Tag Manager (noscript) -->
+<!-- End Google Tag Manager -->
+
+</head>
+
+<body>
+ <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3VQ8SSV"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <div id="root"></div>
-    <script type="module" src="/src/components/thankyou.jsx"></script>
-  </body>
+<!-- End Google Tag Manager (noscript) -->
+  <header class="navbar">
+    <img src="src/assets/logo.webp" alt="Logo" class="logo" />
+    <a href="tel:7045117623" class="contact-button">
+      <svg class="phone-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M3 5a2 2 0 012-2h3.586a1 1 0 01.707.293l2.828 2.828a1 1 0 010 1.414l-2.121 2.121a16.05 16.05 0 006.586 6.586l2.121-2.121a1 1 0 011.414 0l2.828 2.828a1 1 0 01.293.707V19a2 2 0 01-2 2h-1C9.163 21 3 14.837 3 7V5z" />
+      </svg>
+      7045117623
+    </a>
+  </header>
+
+  <section class="main-content">
+    <img src="src/assets/Thnakyou.webp" alt="Thank you" />
+    <div>
+      <h1>Thank You For Booking An Appointment With Us!</h1>
+      <p>We have received your request. Our team is checking for availability & will get back to you soon for confirmation.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container desktop-only">
+      <div class="footer-logo">
+        <img src="src/assets/logo.webp" alt="Logo" class="logo-img" />
+      </div>
+      
+      <div class="footer-call">
+        <a href="tel:7045117623" class="contact-button">
+          <svg class="phone-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M3 5a2 2 0 012-2h3.586a1 1 0 01.707.293l2.828 2.828a1 1 0 010 1.414l-2.121 2.121a16.05 16.05 0 006.586 6.586l2.121-2.121a1 1 0 011.414 0l2.828 2.828a1 1 0 01.293.707V19a2 2 0 01-2 2h-1C9.163 21 3 14.837 3 7V5z" />
+          </svg>
+          7045117623
+        </a>
+      </div>
+    </div>
+     <div class="footer-map">
+        <iframe class="map-frame" title="OPUS Dental Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.755134774481!2d72.82716917595364!3d19.07598998212045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cf2b1e1e4e13%3A0x8984a61e0ec60ae3!2sBandra%20West%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1717923344468!5m2!1sen!2sin"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    <div class="mobile-footer-row mobile-only">
+      
+      <img src="src/assets/logo.webp" alt="Logo" class="mobile-logo" />
+       
+      <a href="tel:7045117623" class="mobile-call-btn">
+        <svg class="phone-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M3 5a2 2 0 012-2h3.586a1 1 0 01.707.293l2.828 2.828a1 1 0 010 1.414l-2.121 2.121a16.05 16.05 0 006.586 6.586l2.121-2.121a1 1 0 011.414 0l2.828 2.828a1 1 0 01.293.707V19a2 2 0 01-2 2h-1C9.163 21 3 14.837 3 7V5z" />
+        </svg>
+        7045117623
+      </a>
+    </div>
+  </footer>
+</body>
+
 </html>
