@@ -52,7 +52,7 @@ const CTASection = () => {
 
   return (
     <section className="bg-themeGreen text-white py-20 px-4">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl text-darkGray sm:text-4xl font-bold mb-4">
             Ready to meet a top dentist near you?
@@ -64,7 +64,8 @@ const CTASection = () => {
 
         <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
           {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-green w-full">
+          <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-green w-full sm:w-1/2"
+>
             {/* Hidden Fields for Tracking */}
             <input type="hidden" name="gclid" value={gclid} />
             <input type="hidden" name="date" value={date} />

@@ -95,7 +95,7 @@ const Hero = () => {
                 <label className="block text-sm text-darkGray font-medium">Full Name</label>
                 <input
                   type="text"
-                  className="w-full border border-gray-300 text-black rounded px-3 py-2 mt-1"
+                  className="w-full border border-gray-300 text-black rounded px-3 py-2 mt-1 focus:outline-none focus:ring-2 focus:ring-themeGreen"
                   placeholder="Full Name"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
@@ -105,7 +105,7 @@ const Hero = () => {
                 <label className="block text-sm text-darkGray font-medium">Email</label>
                 <input
                   type="email"
-                  className="w-full border border-gray-300 text-black rounded px-3 py-2 mt-1"
+                  className="w-full border border-gray-300 text-black rounded px-3 py-2 mt-1 focus:outline-none focus:ring-2 focus:ring-themeGreen"
                   placeholder="Your Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
