@@ -40,9 +40,13 @@
 
 // export default Banner;
 import React, { useState } from 'react';
-import PopupForm from './PopupForm'; // adjust path as needed
+
 import desktopBanner from '../assets/Banner3.webp';
 import mobileBanner from '../assets/banner4.webp';
+import { Suspense, lazy } from 'react'; // ✅ both
+
+// Lazy-load PopupForm only when needed (improves initial load)
+const PopupForm = lazy(() => import('./PopupForm'));
 
 function Banner() {
   const [showForm, setShowForm] = useState(false);
@@ -61,14 +65,22 @@ function Banner() {
         aria-label="Open form"
       >
         <picture>
-          <source srcSet={desktopBanner} media="(min-width: 640px)" />
-          <img
-            src={mobileBanner}
-            alt="Promotional Banner"
-            className="w-full h-full object-cover"
-            loading="eager"
-            fetchpriority="high"
+          {/* Desktop first, fallback is mobile — this helps browsers preload correct image faster */}
+          <source
+            srcSet={desktopBanner}
+            media="(min-width: 640px)"
+            type="image/webp"
           />
+          <img
+  src={mobileBanner}
+  width={800}
+  height={500}
+  alt="Promotional Banner"
+  className="w-full h-auto object-cover"
+  fetchpriority="high"
+  loading="eager"
+/>
+
         </picture>
       </div>
 

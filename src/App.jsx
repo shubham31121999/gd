@@ -43,7 +43,7 @@ function App() {
   return (
     <Suspense fallback={<div className="py-10 text-center">Loading page...</div>}>
       <Routes>
-        <Route path="/dentistry" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/thankyou" element={<ThankYouPage />} />
       </Routes>
     </Suspense>
