@@ -42,13 +42,11 @@ const Hero = () => {
     };
 
     try {
-      const response = await fetch(
-        "https://hooks.zapier.com/hooks/catch/22908877/uy461gm/",
-        {
-          method: "POST",
-          body: JSON.stringify(formData),
-        }
-      );
+      await fetch("https://hooks.zapier.com/hooks/catch/22908877/uy461gm/", {
+      method: "POST",
+      body: JSON.stringify(formData),
+    });
+      
       window.location.href = "/dentistry/thankyou.html";
     } catch (error) {
       console.error("Error during API call:", error);
