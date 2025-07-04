@@ -9,6 +9,7 @@ import KeyValue from './components/KeyValue';
 
 import FloatingButtons from './components/FloatingButtons';
 
+import './fonts.css';
 
 // Lazy Components
 const CTASection = lazy(() => import('./components/CTASection')); // Lazy load CTASection
