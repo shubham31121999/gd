@@ -131,15 +131,7 @@ function Banner() {
             media="(min-width: 640px)"
             type="image/webp"
           />
-          <img
-            src="/dentistry/images/Banner3.webp"
-            alt="Desktop Banner"
-            className="hidden sm:block w-full h-auto object-cover"
-            width={1280}
-            height={720}
-            loading="eager"
-            fetchPriority="high"
-          />
+          
         </picture>
       </div>
 
