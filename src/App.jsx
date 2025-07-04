@@ -5,14 +5,16 @@ import Navbar from './components/Navbar';
 import Banner from './components/Banner';
 import Hero from './components/Hero';
 import KeyValue from './components/KeyValue';
-import Services from './components/Services';
-import TrustBadge from './components/TrustBadge';
+
 import CTASection from './components/CTASection';
 import Footer from './components/Footer';
 import FloatingButtons from './components/FloatingButtons';
 
 
 // Lazy Components
+const PopupForm = lazy(() => import('./components/PopupForm')); // Lazy load PopupForm
+const Services = lazy(() => import('./components/Services')); // Lazy load Services
+const TrustBadge = lazy(() => import('./components/TrustBadge')); // Lazy load TrustBadge
 const Testimonials = lazy(() => import('./components/Testimonials'));
 const Gallery = lazy(() => import('./components/Gallery'));
 const FAQSection = lazy(() => import('./components/FAQSection'));
@@ -25,9 +27,10 @@ function HomePage() {
       <Banner />
       <Hero />
       <KeyValue />
+      
+      <Suspense fallback={<div className="py-10 text-center">Loading sections...</div>}>
       <Services />
       <TrustBadge />
-      <Suspense fallback={<div className="py-10 text-center">Loading sections...</div>}>
         <Testimonials />
         <Gallery />
         <FAQSection />
