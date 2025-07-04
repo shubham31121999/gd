@@ -91,6 +91,8 @@
 // }
 
 // export default Banner;
+
+
 import React, { useState, lazy, Suspense } from 'react';
 
 // Lazy-load PopupForm for better performance
@@ -113,21 +115,30 @@ function Banner() {
         aria-label="Open form"
       >
         <picture>
-          {/* Desktop Image */}
+          {/* 👇 Mobile First */}
+          <img
+            src="/dentistry/images/banner4.webp"
+            alt="Mobile Banner"
+            className="block sm:hidden w-full h-auto object-cover"
+            width={600}
+            height={400}
+            loading="eager"
+            fetchPriority="high"
+          />
+          {/* 👇 Desktop Fallback */}
           <source
-            srcSet="/assets/Banner3.webp"
+            srcSet="/dentistry/images/Banner3.webp"
             media="(min-width: 640px)"
             type="image/webp"
           />
-          {/* Mobile Fallback */}
           <img
-            src="/assets/banner4.webp"
-            width={800}
-            height={500}
-            alt="Promotional Banner"
-            className="w-full h-auto object-cover"
-            fetchpriority="high"
+            src="/dentistry/images/Banner3.webp"
+            alt="Desktop Banner"
+            className="hidden sm:block w-full h-auto object-cover"
+            width={1280}
+            height={720}
             loading="eager"
+            fetchPriority="high"
           />
         </picture>
       </div>

@@ -13,10 +13,10 @@ export default defineConfig({
   plugins: [react(),
     visualizer({ open: true })
   ],
-  // base: '/dentistry/',
+  base: '/dentistry/',
   build: {
-    minify: 'esbuild',
-    cssCodeSplit: true,
+    
+    
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
