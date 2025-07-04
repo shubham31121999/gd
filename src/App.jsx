@@ -8,8 +8,8 @@ import KeyValue from './components/KeyValue';
 
 
 import FloatingButtons from './components/FloatingButtons';
+import './fonts.css'; // ❌ Remove this if the file doesn't exist
 
-import './src/fonts.css';
 
 // Lazy Components
 const CTASection = lazy(() => import('./components/CTASection')); // Lazy load CTASection
