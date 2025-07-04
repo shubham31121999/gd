@@ -6,12 +6,13 @@ import Banner from './components/Banner';
 import Hero from './components/Hero';
 import KeyValue from './components/KeyValue';
 
-import CTASection from './components/CTASection';
-import Footer from './components/Footer';
+
 import FloatingButtons from './components/FloatingButtons';
 
 
 // Lazy Components
+const CTASection = lazy(() => import('./components/CTASection')); // Lazy load CTASection
+const Footer = lazy(() => import('./components/Footer')); // Lazy load Footer
 const PopupForm = lazy(() => import('./components/PopupForm')); // Lazy load PopupForm
 const Services = lazy(() => import('./components/Services')); // Lazy load Services
 const TrustBadge = lazy(() => import('./components/TrustBadge')); // Lazy load TrustBadge
@@ -29,14 +30,15 @@ function HomePage() {
       <KeyValue />
       
       <Suspense fallback={<div className="py-10 text-center">Loading sections...</div>}>
-      <Services />
-      <TrustBadge />
-        <Testimonials />
-        <Gallery />
-        <FAQSection />
+          <Services />
+          <TrustBadge />
+            <Testimonials />
+            <Gallery />
+            <FAQSection />
+            <CTASection />
+          <Footer />
       </Suspense>
-      <CTASection />
-      <Footer />
+      
       <FloatingButtons />
     </>
   );
