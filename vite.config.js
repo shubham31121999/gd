@@ -12,6 +12,8 @@ export default defineConfig({
   plugins: [react()],
   base: '/dentistry/',
   build: {
+    minify: 'esbuild',
+    cssCodeSplit: true,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),

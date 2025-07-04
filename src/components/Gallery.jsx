@@ -21,6 +21,9 @@ function Gallery() {
               src={src}
               alt={`Gallery Image ${index + 1}`}
               className="w-full h-60 object-cover"
+              loading="lazy"
+              decoding="async"
+              fetchpriority="low"
             />
           </div>
         ))}

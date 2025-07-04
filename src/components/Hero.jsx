@@ -12,8 +12,13 @@ const Hero = () => {
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const gclidParam = urlParams.get("gclid");
-    if (gclidParam) setGclid(gclidParam);
-
+    if (gclidParam) {
+    localStorage.setItem("gclid", gclidParam); // ✅ save it for later
+    setGclid(gclidParam);
+  } else {
+    const storedGclid = localStorage.getItem("gclid");
+    if (storedGclid) setGclid(storedGclid); // ✅ restore it if URL doesn't have it
+  }
     const now = new Date();
     setDate(now.toLocaleDateString("en-GB"));
     setTime(now.toLocaleTimeString("en-GB"));
