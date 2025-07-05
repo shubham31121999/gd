@@ -15,6 +15,10 @@ export default defineConfig({
   ],
   base: '/dentistry/',
   build: {
+    cssCodeSplit: true,
+  chunkSizeWarningLimit: 500,
+  minify: 'esbuild',
+  target: 'es2015',
     
     
     rollupOptions: {

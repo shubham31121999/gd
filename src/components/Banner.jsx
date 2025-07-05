@@ -92,56 +92,55 @@
 
 // export default Banner;
 
-
-import React, { useState, lazy, Suspense } from 'react';
-
-// Lazy-load PopupForm for better performance
-const PopupForm = lazy(() => import('./PopupForm'));
+import React, { useState } from 'react';
 
 function Banner() {
+  const [PopupForm, setPopupForm] = useState(null);
   const [showForm, setShowForm] = useState(false);
 
-  const toggleForm = () => setShowForm((prev) => !prev);
+  const toggleForm = async () => {
+    if (!PopupForm) {
+      const mod = await import('./PopupForm');
+      setPopupForm(() => mod.default);
+    }
+    setShowForm((prev) => !prev);
+  };
 
   return (
-    <div className="relative w-full overflow-hidden">
-      {/* Clickable Banner */}
+    <section className="relative w-full overflow-hidden">
+      {/* ✅ Banner Clickable Area */}
       <div
         onClick={toggleForm}
         onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleForm()}
         role="button"
         tabIndex={0}
-        className="cursor-pointer outline-none"
         aria-label="Open form"
+        className="cursor-pointer outline-none"
       >
-        <picture>
-          {/* 👇 Mobile First */}
-          <img
-            src="/dentistry/images/banner4.webp"
-            alt="Mobile Banner"
-            className="block sm:hidden w-full h-auto object-cover"
-            width={600}
-            height={400}
-            loading="eager"
-            fetchPriority="high"
+        {/* ✅ Responsive, Pre-sized, Priority Image */}
+        <picture className="block w-full aspect-[3/2] sm:aspect-[16/9] overflow-hidden mt-5">
+          {/* Mobile AVIF */}
+          <source
+            srcSet="/dentistry/images/banner4.jpg"
+            media="(max-width: 639px)"
+            type="image/avif"
           />
-          {/* 👇 Desktop Fallback */}
+          {/* Mobile WebP fallback */}
+          
+          {/* Desktop WebP */}
           <source
             srcSet="/dentistry/images/Banner3.webp"
             media="(min-width: 640px)"
             type="image/webp"
           />
+          {/* Final fallback */}
           
         </picture>
       </div>
 
-      {/* Popup Form */}
-      {showForm && (
-        <Suspense fallback={null}>
-          <PopupForm onClose={toggleForm} />
-        </Suspense>
-      )}
-    </div>
+      {/* ✅ Lazy-loaded Popup Form */}
+      {PopupForm && showForm && <PopupForm onClose={toggleForm} />}
+    </section>
   );
 }
 
