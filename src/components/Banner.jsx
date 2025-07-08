@@ -119,40 +119,35 @@ function Banner() {
   >
     {/* ✅ Responsive, Pre-sized, Priority Image */}
     <picture className="block w-full aspect-[3/2] sm:aspect-[16/9] overflow-hidden mt-5">
-      {/* Mobile AVIF */}
-      <source
-        srcSet="/images/banner4.webp"
-        media="(max-width: 639px)"
-        type="image/avif"
-        className="w-full h-full object-contained"
-      />
-      {/* Mobile WebP fallback */}
-      <source
-        srcSet="/images/banner4.webp"
-        media="(max-width: 639px)"
-        type="image/webp"
-        className="w-full h-full object-contained"
-      />
-      {/* Desktop WebP */}
-      <source
-        srcSet="
-      /images/Banner3.webp"
-        media="(min-width: 640px)"
-        type="image/webp"
-        className="w-full h-full object-contained"s
-      />
-      {/* Final fallback image */}
-      <img
-        src="/images/Banner3.webp"
-        alt="Promotional Dental Banner"
-        width={1920}
-        height={800}
-        className="w-full h-full object-contained"
-        loading="eager"
-        fetchPriority="high"
-        decoding="async"
-      />
-    </picture>
+  {/* Mobile AVIF */}
+  <source
+    srcSet="/images/banner4.webp"
+    media="(max-width: 639px)"
+    type="image/avif"
+  />
+  {/* Mobile WebP fallback */}
+  <source
+    srcSet="/images/banner4.webp"
+    media="(max-width: 639px)"
+    type="image/webp"
+  />
+  {/* Desktop WebP */}
+  <source
+    srcSet="/images/Banner3.webp"
+    media="(min-width: 640px)"
+    type="image/webp"
+  />
+  {/* Final fallback image */}
+  <img
+    src="/images/Banner3.webp"
+    alt="Promotional Dental Banner"
+    className="w-full h-full object-cover"
+    loading="eager"
+    fetchPriority="high"
+    decoding="async"
+  />
+</picture>
+
   </div>
 
   {/* ✅ Lazy-loaded Popup Form */}
