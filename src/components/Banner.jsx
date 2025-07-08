@@ -121,7 +121,7 @@ function Banner() {
     <picture className="block w-full aspect-[3/2] sm:aspect-[16/9] overflow-hidden mt-5">
       {/* Mobile AVIF */}
       <source
-        srcSet="/dentistry/images/banner4.avif"
+        srcSet="/dentistry/images/banner4.webp"
         media="(max-width: 639px)"
         type="image/avif"
       />
@@ -139,7 +139,7 @@ function Banner() {
       />
       {/* Final fallback image */}
       <img
-        src="/dentistry/images/Banner3.jpg"
+        src="/dentistry/images/Banner3.webp"
         alt="Promotional Dental Banner"
         width={1920}
         height={800}
