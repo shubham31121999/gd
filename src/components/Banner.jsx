@@ -122,26 +122,26 @@ function Banner() {
   {/* Mobile AVIF */}
   <source
     srcSet="/images/banner4.webp"
-    media="(max-width: 639px)"
-    type="image/avif"
+    
+    type="image/webp"
   />
   {/* Mobile WebP fallback */}
   <source
     srcSet="/images/banner4.webp"
-    media="(max-width: 639px)"
+    
     type="image/webp"
   />
   {/* Desktop WebP */}
   <source
     srcSet="/images/Banner3.webp"
-    media="(min-width: 640px)"
+    
     type="image/webp"
   />
   {/* Final fallback image */}
   <img
     src="/images/Banner3.webp"
     alt="Promotional Dental Banner"
-    className="w-full h-full object-cover"
+    className="w-full h-full object-contain"
     loading="eager"
     fetchPriority="high"
     decoding="async"
