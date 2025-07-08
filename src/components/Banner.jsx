@@ -124,12 +124,14 @@ function Banner() {
         srcSet="/images/banner4.webp"
         media="(max-width: 639px)"
         type="image/avif"
+        className="w-full h-full object-contained"
       />
       {/* Mobile WebP fallback */}
       <source
         srcSet="/images/banner4.webp"
         media="(max-width: 639px)"
         type="image/webp"
+        className="w-full h-full object-contained"
       />
       {/* Desktop WebP */}
       <source
@@ -137,6 +139,7 @@ function Banner() {
       /images/Banner3.webp"
         media="(min-width: 640px)"
         type="image/webp"
+        className="w-full h-full object-contained"s
       />
       {/* Final fallback image */}
       <img
@@ -144,7 +147,7 @@ function Banner() {
         alt="Promotional Dental Banner"
         width={1920}
         height={800}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-contained"
         loading="eager"
         fetchPriority="high"
         decoding="async"
