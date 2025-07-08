@@ -121,25 +121,26 @@ function Banner() {
     <picture className="block w-full aspect-[3/2] sm:aspect-[16/9] overflow-hidden mt-5">
       {/* Mobile AVIF */}
       <source
-        srcSet="/dentistry/images/banner4.webp"
+        srcSet="/images/banner4.webp"
         media="(max-width: 639px)"
         type="image/avif"
       />
       {/* Mobile WebP fallback */}
       <source
-        srcSet="/dentistry/images/banner4.webp"
+        srcSet="/images/banner4.webp"
         media="(max-width: 639px)"
         type="image/webp"
       />
       {/* Desktop WebP */}
       <source
-        srcSet="/dentistry/images/Banner3.webp"
+        srcSet="
+      /images/Banner3.webp"
         media="(min-width: 640px)"
         type="image/webp"
       />
       {/* Final fallback image */}
       <img
-        src="/dentistry/images/Banner3.webp"
+        src="/images/Banner3.webp"
         alt="Promotional Dental Banner"
         width={1920}
         height={800}
