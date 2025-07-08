@@ -118,35 +118,33 @@ function Banner() {
     className="cursor-pointer outline-none"
   >
     {/* ✅ Responsive, Pre-sized, Priority Image */}
-    <picture className="block w-full aspect-[3/2] sm:aspect-[16/9] overflow-hidden mt-5">
-  {/* Mobile AVIF */}
+    <picture className="block w-full mt-5">
   <source
     srcSet="/images/banner4.webp"
-    
-    type="image/webp"
+    media="(max-width: 639px)"
+    type="image/avif"
   />
-  {/* Mobile WebP fallback */}
   <source
     srcSet="/images/banner4.webp"
-    
+    media="(max-width: 639px)"
     type="image/webp"
   />
-  {/* Desktop WebP */}
   <source
     srcSet="/images/Banner3.webp"
-    
+    media="(min-width: 640px)"
     type="image/webp"
   />
-  {/* Final fallback image */}
   <img
     src="/images/Banner3.webp"
     alt="Promotional Dental Banner"
-    className="w-full h-full object-contain"
+    className="w-full h-auto"
     loading="eager"
     fetchPriority="high"
     decoding="async"
   />
 </picture>
+
+
 
   </div>
 
