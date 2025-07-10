@@ -118,7 +118,7 @@ function Banner() {
     className="cursor-pointer outline-none"
   >
     {/* ✅ Responsive, Pre-sized, Priority Image */}
-    <picture className="block w-full mt-5">
+    <picture className="block w-full ">
   <source
     srcSet="/images/banner4.webp"
     media="(max-width: 639px)"
