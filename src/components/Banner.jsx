@@ -124,12 +124,12 @@ function Banner() {
   <source
         srcSet={gd1}
         media="(max-width: 639px)"
-        type="image/jpeg"
+        type="image/jpg"
       />
       <source
         srcSet={gd}
         media="(min-width: 640px)"
-        type="image/jpeg"
+        type="image/jpg"
       />
       <img
         src={gd}
