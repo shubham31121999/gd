@@ -120,26 +120,27 @@ function Banner() {
     className="cursor-pointer outline-none"
   >
     {/* ✅ Responsive, Pre-sized, Priority Image */}
-    <picture className="block w-full ">
+    <picture className="block w-full">
   <source
-        srcSet={gd1}
-        media="(max-width: 639px)"
-        type="image/jpg"
-      />
-      <source
-        srcSet={gd}
-        media="(min-width: 640px)"
-        type="image/jpg"
-      />
-      <img
-        src={gd}
-        alt="Promotional Dental Banner"
-        className="w-full h-auto"
-        loading="eager"
-        fetchPriority="high"
-        decoding="async"
-      />
+    srcSet={gd1}
+    media="(max-width: 639px)"
+    type="image/jpg"
+  />
+  <source
+    srcSet={gd}
+    media="(min-width: 640px)"
+    type="image/jpg"
+  />
+  <img
+    src={gd}
+    alt="Promotional Dental Banner"
+    className="w-full h-auto"
+    loading="eager"
+    fetchPriority="high"
+    decoding="async"
+  />
 </picture>
+
 
 
 
