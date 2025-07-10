@@ -93,7 +93,9 @@
 // export default Banner;
 
 import React, { useState } from 'react';
+import gd from  '../assets/gd.jpg'; // Adjust the path as necessary
 
+import gd1 from '../assets/gd1.jpg'; // Adjust the path as necessary
 function Banner() {
   const [PopupForm, setPopupForm] = useState(null);
   const [showForm, setShowForm] = useState(false);
@@ -120,28 +122,23 @@ function Banner() {
     {/* ✅ Responsive, Pre-sized, Priority Image */}
     <picture className="block w-full ">
   <source
-    srcSet="/images/banner4.webp"
-    media="(max-width: 639px)"
-    type="image/avif"
-  />
-  <source
-    srcSet="/images/banner4.webp"
-    media="(max-width: 639px)"
-    type="image/webp"
-  />
-  <source
-    srcSet="/images/Banner3.webp"
-    media="(min-width: 640px)"
-    type="image/webp"
-  />
-  <img
-    src="/images/Banner3.webp"
-    alt="Promotional Dental Banner"
-    className="w-full h-auto"
-    loading="eager"
-    fetchPriority="high"
-    decoding="async"
-  />
+        srcSet={gd1}
+        media="(max-width: 639px)"
+        type="image/jpeg"
+      />
+      <source
+        srcSet={gd}
+        media="(min-width: 640px)"
+        type="image/jpeg"
+      />
+      <img
+        src={gd}
+        alt="Promotional Dental Banner"
+        className="w-full h-auto"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
+      />
 </picture>
 
 
