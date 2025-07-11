@@ -13,7 +13,7 @@ export default defineConfig({
   plugins: [react(),
     visualizer({ open: true })
   ],
-  // base: '/dentistry/',
+  base: '/dentistry/',
   build: {
     cssCodeSplit: true,
   chunkSizeWarningLimit: 500,
